@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './frame/page-not-found/page-not-found.component';
 import { SharedModule } from './module/common';
 import { MenubarModule } from 'primeng/menubar';
+import { ConfigModule } from './module/config/config.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MenubarModule } from 'primeng/menubar';
       }
     ),
     EffectsModule.forRoot([]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    ConfigModule                                                                // hogy a config globálisan be legyen töltve már az App indulásától kezdve
   ],
   providers: [],
   bootstrap: [AppComponent]

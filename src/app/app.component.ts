@@ -1,9 +1,12 @@
 import { MenuItem } from 'primeng/api';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Title } from '@angular/platform-browser';
 import { ConfigService } from './core/config';
+import { DOCUMENT } from '@angular/common';
+import { ConfigEntity, ConfigStoreService } from './api/config';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,14 +19,21 @@ export class AppComponent implements OnInit {
 
   public items!: MenuItem[];
 
+  public configChange$!: Observable<ConfigEntity>;
+
   constructor(
     private _title: Title,
-    private config: ConfigService){
+    private config: ConfigService,
+    private configStoreService: ConfigStoreService,                   // config csere miatt
+    @Inject(DOCUMENT) private document: Document                      // configot így tudja beírni lent a HTML-be
+    ){
     // this._title.setTitle(this.title);
     this._title.setTitle(this.config.get('appTitle') as string);
   }
 
   public ngOnInit(): void {
+
+    this.configChange$ = this.configStoreService.selectEntity$();                                               // Entity kiszedése
     
     this.items = [
       {
@@ -166,6 +176,20 @@ export class AppComponent implements OnInit {
       }
     ];
 
+    this.configStoreService.selectEntity$().pipe(tap(config => {                                    // ha jön téma -> váltás
+      this.switchTheme(config.theme);
+    })).subscribe();
+
+  }
+
+  private switchTheme(theme: string) {
+    let themeLink = this.document.getElementById(                                               // az index.html HEAD-ban az id megváltoztatása: id="app-theme"
+        'app-theme'
+    ) as HTMLLinkElement;
+
+    if (themeLink) {
+        themeLink.href = theme + '.css';
+    }
   }
 
 }
