@@ -1,6 +1,8 @@
 import { MenuItem } from 'primeng/api';
 
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  public title = 'jbead3_A';
+  public title = environment.title;
 
   public items!: MenuItem[];
+
+  constructor(private _title: Title){
+    this._title.setTitle(this.title);
+  }
 
   public ngOnInit(): void {
     
