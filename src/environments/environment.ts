@@ -1,3 +1,4 @@
 export const environment = {
-    title: 'Önéletrajz adatok'
+    title: 'Önéletrajz adatok',
+    production: false,
 }
