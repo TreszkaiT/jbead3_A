@@ -3,6 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Title } from '@angular/platform-browser';
+import { ConfigService } from './core/config';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +12,15 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
 
-  public title = environment.title;
+  // public title = environment.title;
 
   public items!: MenuItem[];
 
-  constructor(private _title: Title){
-    this._title.setTitle(this.title);
+  constructor(
+    private _title: Title,
+    private config: ConfigService){
+    // this._title.setTitle(this.title);
+    this._title.setTitle(this.config.get('appTitle') as string);
   }
 
   public ngOnInit(): void {
