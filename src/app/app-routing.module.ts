@@ -7,11 +7,17 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'admin',
+    redirectTo: 'home',
   },
   {
     path: 'home',
     loadChildren: () => import('./page/home/home-page.module').then( (module) => module.HomePageModule),
+  },
+  {
+    path: 'config',
+    loadChildren: () =>
+      import('./page/config/config-page.module').then(
+        (module) => module.ConfigPageModule),
   },
   { path: '**', component: PageNotFoundComponent },
 ];
