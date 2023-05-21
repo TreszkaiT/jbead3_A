@@ -1,6 +1,6 @@
 import { FormGroup } from '@angular/forms';
 
-import { Identifiable } from '../identify';
+import { Identifiable } from '../identifiable';
 
 export const CITY_FEATURE_KEY = 'city';
 

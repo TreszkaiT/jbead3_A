@@ -12,6 +12,8 @@ import { PageNotFoundComponent } from './frame/page-not-found/page-not-found.com
 import { SharedModule } from './module/common';
 import { MenubarModule } from 'primeng/menubar';
 import { ConfigModule } from './module/config/config.module';
+import { AuthenticationStoreModule } from './core/authentication/store/authentication-store.module';
+import { AuthenticationDataModule } from './core/authentication/data/authentication-data.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ConfigModule } from './module/config/config.module';
     ),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    ConfigModule                                                                // hogy a config globálisan be legyen töltve már az App indulásától kezdve
+    ConfigModule,
+    AuthenticationStoreModule,                                              // e nélkül nem megy a login és registration html oldala
+    AuthenticationDataModule                                                // u.a.                                                                // hogy a config globálisan be legyen töltve már az App indulásától kezdve
   ],
   providers: [],
   bootstrap: [AppComponent]
