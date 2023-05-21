@@ -1,4 +1,4 @@
-import { MenuItem } from 'primeng/api';
+import { MenuItem, PrimeNGConfig } from 'primeng/api';
 
 import { Component, Inject, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -25,7 +25,8 @@ export class AppComponent implements OnInit {
     private _title: Title,
     private config: ConfigService,
     private configStoreService: ConfigStoreService,                   // config csere miatt
-    @Inject(DOCUMENT) private document: Document                      // configot így tudja beírni lent a HTML-be
+    @Inject(DOCUMENT) private document: Document,                      // configot így tudja beírni lent a HTML-be
+    private primengConfig: PrimeNGConfig,
     ){
     // this._title.setTitle(this.title);
     this._title.setTitle(this.config.get('appTitle') as string);
@@ -35,6 +36,8 @@ export class AppComponent implements OnInit {
 
     this.configChange$ = this.configStoreService.selectEntity$();                                               // Entity kiszedése
     
+    this.primengConfig.ripple = true;                                       // Ripple animation in button (középröl kör irányba mint egy vízbe dobott kő fehér glória mozog kifelé)
+
     this.items = [
       {
         label: 'Home',
