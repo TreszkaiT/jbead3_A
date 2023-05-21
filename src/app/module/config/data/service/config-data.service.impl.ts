@@ -36,6 +36,6 @@ export class ConfigDataServiceImpl extends ConfigDataService {
   public override update$(config: ConfigEntity): Observable<ConfigEntity> {
     //return of(config);
     //return this.httpClient.patch<ConfigEntity>(`${this.apiUrl}/config`, config);
-    return this.http.patch<ConfigEntity>(`${this.apiUrl}`, config, {headers: this.headers});
+    return this.http.put<ConfigEntity>(`${this.apiUrl}`, config, {headers: this.headers});
   }
 }
