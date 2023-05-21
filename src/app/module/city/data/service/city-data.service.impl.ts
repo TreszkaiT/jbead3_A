@@ -7,7 +7,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ConfigService } from 'src/app/api/services';
+import { ConfigService } from 'src/app/core/config';
+
 
 @Injectable()
 export class CityDataServiceImpl extends CityDataService {
