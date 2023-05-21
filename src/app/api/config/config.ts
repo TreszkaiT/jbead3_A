@@ -1,4 +1,4 @@
-import { Identifiable } from '../identify';
+import { Identifiable } from '../identifiable';
 
 export const CONFIG_FEATURE_KEY = 'config';
 
