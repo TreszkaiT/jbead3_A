@@ -48,7 +48,7 @@ export class CityDataServiceImpl extends CityDataService {
 
   public override get$(cityId: string): Observable<CityEntity | undefined> {
     //return this.http.get<CityEntity>(`${this.uri}/city/${cityId}`, {headers: this.headers});
-    return this.http.post<CityEntity>(this.url + '/' + cityId, {headers: this.headers});
+    return this.http.get<CityEntity>(this.url + '/' + cityId, {headers: this.headers});
   }
 
   public override list$(): Observable<CityEntity[]> {

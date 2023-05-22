@@ -9,5 +9,6 @@ export class UserListPageResolverService implements Resolve<void> {
 
     public resolve(): void {
         this.userStoreService.dispatchChangeNewEntityButtonEnabled(true);
+        this.userStoreService.dispatchListEntitiesAction();
     }
 }
