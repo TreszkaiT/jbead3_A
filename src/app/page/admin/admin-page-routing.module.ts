@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AdminPageComponent } from './component/page/admin-page.component';
+import { AdminListsPageResolverService } from './component/list';
+import { CityListPageResolverService } from 'src/app/module/city/admin/page/list';
+import { UserListPageResolverService } from 'src/app/module/user/admin/page/list';
 
 const routes: Routes = [
   {
@@ -17,6 +20,8 @@ const routes: Routes = [
           import('../../module/user/admin/user-admin-page.module').then(
             (module) => module.UserAdminPageModule
           ),
+          //resolve: { data: AdminListsPageResolverService },
+          //resolve: { data: UserListPageResolverService },
       },
       {
         path: 'city',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
@@ -24,6 +29,8 @@ const routes: Routes = [
           import('../../module/city/admin/city-admin-page.module').then(
             (module) => module.CityAdminPageModule
           ),
+          //resolve: { data: AdminListsPageResolverService },
+          //resolve: { data: CityListPageResolverService },
       },
       // {
       //   path: 'language',                                                   // Lazy modon meg a city-t, ha szükség lezs rá

@@ -28,6 +28,9 @@ export class CityTableService {
     }
 
     public init$(): Observable<CityTableParams> {
+        
+        // this.cityStoreService.dispatchListEntitiesAction();
+          
         return merge(
             this.cityStoreService.selectEntityList$().pipe(first())
         ).pipe(
