@@ -1,0 +1,34 @@
+import { FormGroup } from '@angular/forms';
+
+import { Identifiable } from '../../identifiable';
+
+export const CITY_FEATURE_KEY = 'city';
+
+export interface CityModel {
+  // #region Properties (3)
+
+  name: string;
+  zip: string;
+  
+//   id: 1;
+//   name: 'Nyíregyháza';
+//   zip: 4400;
+
+  // #endregion Properties (3)
+}
+
+export type CityEntity = CityModel & Identifiable;
+
+export type CityEntityAdd = CityModel;
+
+export type CityEntityUpdate = Partial<CityEntity> & Identifiable;
+
+export type CityFormParams = {
+  formGroup: FormGroup;
+};
+
+export type CityTableParams = {
+    //selectedEntity: CityEntity | null;              // p-multiSelect component miatt
+    //entities: CityEntity[];
+    cities: CityEntity[];
+}

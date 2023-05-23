@@ -1,5 +1,5 @@
 import { AUTHENTICATION_FEATURE_KEY } from 'src/app/api/authentication';
-import { UserEntity } from 'src/app/api/user';
+import { UserEntity } from 'src/app/api/domain/user';
 
 import { createReducer, on } from '@ngrx/store';
 

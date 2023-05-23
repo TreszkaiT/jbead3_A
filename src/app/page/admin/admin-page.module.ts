@@ -1,10 +1,10 @@
 
 // import { AuthenticationStoreService } from 'src/app/api/authentication';
-import { CityDataService, CityStoreService } from 'src/app/api/city';
+import { CityDataService, CityStoreService } from 'src/app/api/domain/city';
 // import { AuthenticationStoreServiceImpl } from 'src/app/core/authentication/store/service';
-import { CityModule } from 'src/app/module/city/city.module';
-import { CityDataServiceImpl } from 'src/app/module/city/data/service';
-import { CityStoreServiceImpl } from 'src/app/module/city/store/service';
+import { CityModule } from 'src/app/module/domain/city/city.module';
+import { CityDataServiceImpl } from 'src/app/module/domain/city/data/service';
+import { CityStoreServiceImpl } from 'src/app/module/domain/city/store/service';
 import { SharedModule } from 'src/app/module/common';
 
 import { CommonModule } from '@angular/common';
@@ -14,10 +14,10 @@ import { AdminPageRoutingModule } from './admin-page-routing.module';
 import { LeftSidebarComponent } from './component/left-sidebar/left-sidebar.component';
 import { AdminListsPageResolverService } from './component/list';
 import { AdminPageComponent } from './component/page/admin-page.component';
-import { UserStoreService } from 'src/app/api/user';
-import { UserStoreServiceImpl } from 'src/app/module/user/store/service';
-import { UserListPageResolverService } from 'src/app/module/user/admin/page/list';
-import { CityListPageResolverService } from 'src/app/module/city/admin/page/list';
+import { UserStoreService } from 'src/app/api/domain/user';
+import { UserStoreServiceImpl } from 'src/app/module/domain/user/store/service';
+import { UserListPageResolverService } from 'src/app/module/domain/user/admin/page/list';
+import { CityListPageResolverService } from 'src/app/module/domain/city/admin/page/list';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],

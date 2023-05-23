@@ -8,14 +8,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { CityStoreService } from './api/city';
+import { CityStoreService } from './api/domain/city';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationDataModule } from './core/authentication/data/authentication-data.module';
 import { AuthenticationStoreModule } from './core/authentication/store/authentication-store.module';
 import { ConfigService } from './core/config';
 import { PageNotFoundComponent } from './frame/page-not-found/page-not-found.component';
-import { CityStoreServiceImpl } from './module/city/store/service';
+import { CityStoreServiceImpl } from './module/domain/city/store/service';
 import { SharedModule } from './module/common';
 import { ConfigModule } from './module/config/config.module';
 import { AdminPageGuard } from './page/admin/guard';
