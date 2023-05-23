@@ -9,7 +9,7 @@ import * as fromCity from '../state/city.reducer';
 import * as CitySelectors from '../state/city.selectors';
 
 @Injectable()
-export class CityStoreServiceImpl extends CityStoreService {
+export class CityStoreServiceImpl extends CityStoreService {                // ide kerülnek be az Action-ok és a Selector-ok
   // #region Constructors (1)
 
 
