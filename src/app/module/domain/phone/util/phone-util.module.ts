@@ -1,4 +1,4 @@
-import { PhoneUtilService } from 'src/app/api/domain/Phone';
+import { PhoneUtilService } from 'src/app/api/domain/phone';
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';

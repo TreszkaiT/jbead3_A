@@ -1,0 +1,109 @@
+import { Observable } from 'rxjs';
+import { PhoneEntity, PhoneEntityAdd, PhoneEntityUpdate, PhoneStoreService } from 'src/app/api/domain/phone';
+
+import { Injectable } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+
+import * as phoneActions from '../state/phone.actions';
+import * as fromPhone from '../state/phone.reducer';
+import * as PhoneSelectors from '../state/phone.selectors';
+
+@Injectable()
+export class PhoneStoreServiceImpl extends PhoneStoreService {                // ide kerülnek be az Action-ok és a Selector-ok
+  // #region Constructors (1)
+
+
+  public constructor(private store: Store<fromPhone.PhonePartialState>) {
+    super();
+  }
+
+  public dispatchAddEntityAction(phone: PhoneEntityAdd): void {
+      this.store.dispatch(phoneActions.addPhone({ phone }));
+  }
+
+  public dispatchChangeNewEntityButtonEnabled(enabled: boolean): void {
+  this.store.dispatch(
+    phoneActions.changeNewEntityButtonEnabled({ enabled })
+  );
+  } 
+
+  public override dispatchGetEntityAction(id: string): void {
+      this.store.dispatch(phoneActions.getPhone({ id }));
+  }
+
+  public dispatchListEntitiesAction(): void {
+      this.store.dispatch(phoneActions.listPhones());
+  }
+
+  public dispatchUpdateEntityAction(phone: PhoneEntityUpdate): void {
+      this.store.dispatch(phoneActions.updatePhone({ phone }));
+  }
+
+  public isLoading$(): Observable<boolean> {
+      return this.store.pipe(select(PhoneSelectors.getPhoneLoading));
+  }
+
+  public override selectEntity$(
+      id: string
+  ): Observable<PhoneEntity | undefined> {
+      return this.store.pipe(select(PhoneSelectors.selectPhoneById(id)));
+  }
+
+  public selectEntityList$(): Observable<PhoneEntity[]> {
+      return this.store.pipe(select(PhoneSelectors.getAllPhone));
+  }
+
+  public selectNewEntityButtonEnabled$(): Observable<boolean> {
+    return this.store.pipe(
+      select(PhoneSelectors.isNewEntityButtonEnabled)
+    );
+  } 
+
+
+  // constructor(private store: Store<PhonePartialState>) {
+  //   super();
+  // }
+
+
+  // public override dispatchAddEntityAction(phone: PhoneModel): void {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override dispatchChangeEntityButtonEnabled(enabled: boolean): void {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override dispatchGetEntityAction(phoneId: number): void {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override dispatchListEntitiesAction(): void {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override dispatchSetEntityAction(phone: PhoneEntity | null): void {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override dispatchUpdateEntityAction(entity: PhoneEntityUpdate): void {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override selectEntity$(phoneId: number): Observable<PhoneEntity | undefined> {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override selectEntityList$(): Observable<PhoneEntity[]> {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override selectNewEntityButtonEnabled$(): Observable<boolean> {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // public override selectSelectedEntity$(): Observable<PhoneEntity | null> {
+  //   throw new Error('Method not implemented.');
+  // }
+
+  // #endregion Public Methods (10)
+}
