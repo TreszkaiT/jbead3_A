@@ -1,14 +1,13 @@
-
 import { CITY_FEATURE_KEY, CityEntity } from 'src/app/api/domain/city';
 
 import { Dictionary } from '@ngrx/entity';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { cityAdapter, CityState } from './city.reducer';
+import { CityState, cityAdapter } from './city.reducer';
 
 export const getCityState = createFeatureSelector<CityState>(CITY_FEATURE_KEY);
 
-const { selectAll, selectEntities } = cityAdapter.getSelectors();
+const { selectAll, selectEntities } = cityAdapter.getSelectors();           // Reducer-ben lévő cityAdapter segítségével tudok gyorsan selectálni CityEntity-ket itt letebb
 
 export const getCityLoading = createSelector(
     getCityState,
@@ -45,20 +44,6 @@ export const selectCity = createSelector(
 );
 
 export const selectCityById = (id: string) =>
-    createSelector(getCityEntities, (cityEntities: Dictionary<CityEntity>) => {
-        return cityEntities[id];
-});
-
-
-// export const selectCityState =
-//     createFeatureSelector<CityState>(CITY_FEATURE_KEY);
-
-// export const selectCity = createSelector(
-//     selectCityState,
-//     (state: CityState) => state.city
-// );
-
-// export const selectError = createSelector(
-//     selectCityState,
-//     (state: CityState) => state.error
-// );
+    createSelector(getCityEntities, (cityEntities: Dictionary<CityEntity>) => {     
+        return cityEntities[id];                                                    // a Dictionary-val lehet elérni, hogy itt id alapján adjon vissza egy CityEntity-t (Map-pinget így tudom egy kéréssel gyorsan átnézni)
+    });

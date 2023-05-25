@@ -1,7 +1,7 @@
 import { PhoneEntity, PhoneEntityAdd, PhoneEntityUpdate } from 'src/app/api/domain/phone';
 
-import { createAction, props } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
+import { createAction, props } from '@ngrx/store';
 
 export const addPhone = createAction(
     '[Phone Admin] Add Phone',

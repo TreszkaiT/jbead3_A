@@ -30,5 +30,5 @@ export type CityFormParams = {
 export type CityTableParams = {
     //selectedEntity: CityEntity | null;              // p-multiSelect component miatt
     //entities: CityEntity[];
-    cities: CityEntity[];
+    citys: CityEntity[];
 }

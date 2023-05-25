@@ -18,8 +18,9 @@ export class CityUtilServiceImpl extends CityUtilService {
     }
 
     public createEntity(formGroup: FormGroup): CityEntityAdd {
+
         return {
-            name: formGroup.value['name'],
+            name: (formGroup.value['name'] as string).trim(),
             zip: formGroup.value['zip'],
         };
     }
@@ -33,6 +34,7 @@ export class CityUtilServiceImpl extends CityUtilService {
     }
 
     public updateEntity(formGroup: FormGroup): CityEntityUpdate {
+
         return {
             name: formGroup.value['name'],
             zip: formGroup.value['zip'],

@@ -34,10 +34,10 @@ export class CityTableService {
         return merge(
             this.cityStoreService.selectEntityList$().pipe(first())
         ).pipe(
-            switchMap((cities) => {
+            switchMap((citys) => {
                 this.params = {
                     //selectedEntity,
-                    cities,
+                    citys,
                 };
 
                 this.params$$.next(this.params);

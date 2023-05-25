@@ -1,7 +1,7 @@
 import { CityEntity, CityEntityAdd, CityEntityUpdate } from 'src/app/api/domain/city';
 
-import { createAction, props } from '@ngrx/store';
 import { Update } from '@ngrx/entity';
+import { createAction, props } from '@ngrx/store';
 
 export const addCity = createAction(
     '[City Admin] Add City',

@@ -1,5 +1,5 @@
 <section class="artist-table" *ngIf="params$ | async as params">
-	<p-table [value]="params.cities" sortField="name" sortMode="multiple" styleClass="p-datatable-striped p-datatable-sm"
+	<p-table [value]="params.citys" sortField="name" sortMode="multiple" styleClass="p-datatable-striped p-datatable-sm"
 		responsiveLayout="scroll" [paginator]="true" [rows]="10">
 		<ng-template pTemplate="header">
 			<tr>

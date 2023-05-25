@@ -1,11 +1,14 @@
 
 // import { AuthenticationStoreService } from 'src/app/api/authentication';
 import { CityDataService, CityStoreService } from 'src/app/api/domain/city';
+import { UserStoreService } from 'src/app/api/domain/user';
+import { SharedModule } from 'src/app/module/common';
 // import { AuthenticationStoreServiceImpl } from 'src/app/core/authentication/store/service';
 import { CityModule } from 'src/app/module/domain/city/city.module';
-import { CityDataServiceImpl } from 'src/app/module/domain/city/data/service';
 import { CityStoreServiceImpl } from 'src/app/module/domain/city/store/service';
-import { SharedModule } from 'src/app/module/common';
+import { PhoneModule } from 'src/app/module/domain/phone/phone.module';
+import { UserStoreServiceImpl } from 'src/app/module/domain/user/store/service';
+import { UserModule } from 'src/app/module/domain/user/user.module';
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -14,10 +17,6 @@ import { AdminPageRoutingModule } from './admin-page-routing.module';
 import { LeftSidebarComponent } from './component/left-sidebar/left-sidebar.component';
 import { AdminListsPageResolverService } from './component/list';
 import { AdminPageComponent } from './component/page/admin-page.component';
-import { UserStoreService } from 'src/app/api/domain/user';
-import { UserStoreServiceImpl } from 'src/app/module/domain/user/store/service';
-import { UserListPageResolverService } from 'src/app/module/domain/user/admin/page/list';
-import { CityListPageResolverService } from 'src/app/module/domain/city/admin/page/list';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -25,7 +24,9 @@ import { CityListPageResolverService } from 'src/app/module/domain/city/admin/pa
     CommonModule,
     AdminPageRoutingModule,
     //SharedModule
-    CityModule                                                    // e nélkül City module nem jelenik meg az admin menü city bal menüpont (entitás) - ra kattintva
+    CityModule,                                                    // e nélkül City module nem jelenik meg az admin menü city bal menüpont (entitás) - ra kattintva
+    UserModule,
+    PhoneModule
   ],
   // providers: [
   //   {

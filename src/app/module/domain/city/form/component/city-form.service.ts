@@ -36,11 +36,11 @@ export class CityFormService {
         });
     }
 
-    public init$(): Observable<CityFormParams> {
+    public init$(): Observable<CityFormParams> {  // a logika, mely a City-t dropdown menüben betölti a City-hez
         return this.activatedRoute.params.pipe(
             switchMap((data) =>
                 combineLatest([
-                    this.cityStoreService.selectEntity$(data['cityId']),
+                    this.cityStoreService.selectEntity$(data['cityId']),                    
                 ])
             ),
             switchMap(([city]) => {
@@ -59,11 +59,11 @@ export class CityFormService {
         console.log(file);
     }
 
-    public submit(): void {
-        if (this.city) {
-            this.updateCity();
+    public submit(): void {                     // ha a Submit-ra kattintok, akkor
+        if (this.city) {                        // ha van már ilyen City, akkor
+            this.updateCity();                  // updatelem
         } else {
-            this.addCity();
+            this.addCity();                     // amúgy meg létrehozom
         }
 
         this.router.navigate(['../../list'], {
@@ -71,8 +71,8 @@ export class CityFormService {
         });
     }
 
-    private addCity(): void {
-        const city: CityEntityAdd = this.cityUtilService.createEntity(
+    private addCity(): void {       // a cityUtilService-el készít nekünk egy új Cityt
+        const city: CityEntityAdd = this.cityUtilService.createEntity(       // itt a util/service/ -ben van
             this.params.formGroup
         );
 
@@ -87,8 +87,8 @@ export class CityFormService {
         return cityFormParams;
     }
 
-    private updateCity(): void {
-        const city: CityEntityUpdate = this.cityUtilService.updateEntity(
+    private updateCity(): void {       // a cityUtilService-el készít nekünk egy létező Cityt, amit majd be tudunk updatelni
+        const city: CityEntityUpdate = this.cityUtilService.updateEntity(       // itt a util/service/ -ben van
             this.params.formGroup
         );
 

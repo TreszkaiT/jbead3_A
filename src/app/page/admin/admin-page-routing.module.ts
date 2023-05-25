@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AdminPageComponent } from './component/page/admin-page.component';
-import { AdminListsPageResolverService } from './component/list';
-import { CityListPageResolverService } from 'src/app/module/domain/city/admin/page/list';
-import { UserListPageResolverService } from 'src/app/module/domain/user/admin/page/list';
+// import { AdminListsPageResolverService } from './component/list';
+// import { CityListPageResolverService } from 'src/app/module/domain/city/admin/page/list';
+// import { UserListPageResolverService } from 'src/app/module/domain/user/admin/page/list';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
       {
         path: 'city',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
         loadChildren: () =>
-          import('../../module/domain/city/admin/city-admin-page.module').then(
+          import('src/app/module/domain/city/admin/city-admin-page.module').then(
             (module) => module.CityAdminPageModule
           ),
           //resolve: { data: AdminListsPageResolverService },
@@ -35,56 +35,56 @@ const routes: Routes = [
       // {
       //   path: 'language',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>
-      //     import('./modules/domain/language/language-admin-page.module').then(
+      //     import('../../module/domain/language/admin/language-admin-page.module').then(
       //       (module) => module.LanguageAdminPageModule
       //     ),
       // },  
       // {
       //   path: 'otherskill',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>
-      //     import('./modules/domain/otherskill/otherskill-admin-page.module').then(
+      //     import('../../module/domain/otherskill/admin/otherskill-admin-page.module').then(
       //       (module) => module.OtherskillAdminPageModule
       //     ),
       // },    
-      // {
-      //   path: 'phone',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('./modules/domain/phone/phone-admin-page.module').then(
-      //       (module) => module.PhoneAdminPageModule
-      //     ),
-      // },  
+      {
+        path: 'phone',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/phone/admin/phone-admin-page.module').then(
+            (module) => module.PhoneAdminPageModule
+          ),
+      },  
       // {
       //   path: 'picture',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>
-      //     import('./modules/domain/picture/picture-admin-page.module').then(
+      //     import('../../module/domain/picture/admin/picture-admin-page.module').then(
       //       (module) => module.PictureAdminPageModule
       //     ),
       // },     
       // {
       //   path: 'study',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>
-      //     import('./modules/domain/study/study-admin-page.module').then(
+      //     import('../../module/domain/study/admin/study-admin-page.module').then(
       //       (module) => module.StudyAdminPageModule
       //     ),
       // },   
       // {
       //   path: 'proofexperience',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>
-      //     import('./modules/domain/proofexperience/proofexperience-admin-page.module').then(
+      //     import('../../module/domain/proofexperience/admin/proofexperience-admin-page.module').then(
       //       (module) => module.ProofexperienceAdminPageModule
       //     ),
       // }, 
       // {
       //   path: 'socialmedia',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>
-      //     import('./modules/domain/socialmedia/socialmedia-admin-page.module').then(
+      //     import('../../module/domain/socialmedia/admin/socialmedia-admin-page.module').then(
       //       (module) => module.SocialmediaAdminPageModule
       //     ),
       // },   
       // {
       //   path: 'messageapp',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>
-      //     import('./modules/domain/messageapp/messageapp-admin-page.module').then(
+      //     import('../../module/domain/messageapp/admin/messageapp-admin-page.module').then(
       //       (module) => module.MessageappAdminPageModule
       //     ),
       // },                                      

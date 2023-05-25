@@ -1,14 +1,13 @@
-
 import { PHONE_FEATURE_KEY, PhoneEntity } from 'src/app/api/domain/phone';
 
 import { Dictionary } from '@ngrx/entity';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { phoneAdapter, PhoneState } from './phone.reducer';
+import { PhoneState, phoneAdapter } from './phone.reducer';
 
 export const getPhoneState = createFeatureSelector<PhoneState>(PHONE_FEATURE_KEY);
 
-const { selectAll, selectEntities } = phoneAdapter.getSelectors();
+const { selectAll, selectEntities } = phoneAdapter.getSelectors();           // Reducer-ben lévő phoneAdapter segítségével tudok gyorsan selectálni PhoneEntity-ket itt letebb
 
 export const getPhoneLoading = createSelector(
     getPhoneState,
@@ -45,20 +44,6 @@ export const selectPhone = createSelector(
 );
 
 export const selectPhoneById = (id: string) =>
-    createSelector(getPhoneEntities, (phoneEntities: Dictionary<PhoneEntity>) => {
-        return phoneEntities[id];
-});
-
-
-// export const selectPhoneState =
-//     createFeatureSelector<PhoneState>(PHONE_FEATURE_KEY);
-
-// export const selectPhone = createSelector(
-//     selectPhoneState,
-//     (state: PhoneState) => state.phone
-// );
-
-// export const selectError = createSelector(
-//     selectPhoneState,
-//     (state: PhoneState) => state.error
-// );
+    createSelector(getPhoneEntities, (phoneEntities: Dictionary<PhoneEntity>) => {     
+        return phoneEntities[id];                                                    // a Dictionary-val lehet elérni, hogy itt id alapján adjon vissza egy PhoneEntity-t (Map-pinget így tudom egy kéréssel gyorsan átnézni)
+    });

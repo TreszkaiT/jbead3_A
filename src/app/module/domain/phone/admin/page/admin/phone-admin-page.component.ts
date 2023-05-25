@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./phone-admin-page.component.scss'],
 })
 export class PhoneAdminPageComponent implements OnInit {
+
     public isNewEntityButtonEnabled$!: Observable<boolean>;
 
     public constructor(

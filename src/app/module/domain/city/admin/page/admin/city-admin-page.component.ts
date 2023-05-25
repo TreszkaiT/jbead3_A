@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./city-admin-page.component.scss'],
 })
 export class CityAdminPageComponent implements OnInit {
+
     public isNewEntityButtonEnabled$!: Observable<boolean>;
 
     public constructor(

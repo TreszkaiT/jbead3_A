@@ -6,15 +6,13 @@ import { NgModule } from '@angular/core';
 import { PhoneUtilServiceImpl } from './service';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ],
-  providers: [
-    {
-      provide: PhoneUtilService,
-      useClass: PhoneUtilServiceImpl,
-    }
-  ]
+    declarations: [],
+    imports: [CommonModule],
+    providers: [
+        {
+            provide: PhoneUtilService,
+            useClass: PhoneUtilServiceImpl,
+        },
+    ],
 })
-export class PhoneUtilModule { }
+export class PhoneUtilModule {}

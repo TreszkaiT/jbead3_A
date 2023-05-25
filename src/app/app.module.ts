@@ -15,7 +15,6 @@ import { AuthenticationDataModule } from './core/authentication/data/authenticat
 import { AuthenticationStoreModule } from './core/authentication/store/authentication-store.module';
 import { ConfigService } from './core/config';
 import { PageNotFoundComponent } from './frame/page-not-found/page-not-found.component';
-import { CityStoreServiceImpl } from './module/domain/city/store/service';
 import { SharedModule } from './module/common';
 import { ConfigModule } from './module/config/config.module';
 import { AdminPageGuard } from './page/admin/guard';

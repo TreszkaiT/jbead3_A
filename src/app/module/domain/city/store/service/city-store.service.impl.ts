@@ -1,5 +1,10 @@
 import { Observable } from 'rxjs';
-import { CityEntity, CityEntityAdd, CityEntityUpdate, CityStoreService } from 'src/app/api/domain/city';
+import {
+    CityEntity,
+    CityEntityAdd,
+    CityEntityUpdate,
+    CityStoreService,
+} from 'src/app/api/domain/city';
 
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
@@ -9,101 +14,50 @@ import * as fromCity from '../state/city.reducer';
 import * as CitySelectors from '../state/city.selectors';
 
 @Injectable()
-export class CityStoreServiceImpl extends CityStoreService {                // ide kerülnek be az Action-ok és a Selector-ok
-  // #region Constructors (1)
+export class CityStoreServiceImpl extends CityStoreService {
+    public constructor(private store: Store<fromCity.CityPartialState>) {   // ezt a store: -t egy ilyen CityPartialState interface alapján szeretném használni
+        super();
+    }
 
+    public dispatchAddEntityAction(city: CityEntityAdd): void {
+        this.store.dispatch(cityActions.addCity({ city }));
+    }
 
-  public constructor(private store: Store<fromCity.CityPartialState>) {
-    super();
-  }
+    public dispatchChangeNewEntityButtonEnabled(enabled: boolean): void {
+		this.store.dispatch(
+			cityActions.changeNewEntityButtonEnabled({ enabled })
+		);
+	} 
 
-  public dispatchAddEntityAction(city: CityEntityAdd): void {
-      this.store.dispatch(cityActions.addCity({ city }));
-  }
+    public override dispatchGetEntityAction(id: string): void {
+        this.store.dispatch(cityActions.getCity({ id }));
+    }
 
-  public dispatchChangeNewEntityButtonEnabled(enabled: boolean): void {
-  this.store.dispatch(
-    cityActions.changeNewEntityButtonEnabled({ enabled })
-  );
-  } 
+    public dispatchListEntitiesAction(): void {
+        this.store.dispatch(cityActions.listCitys());
+    }
 
-  public override dispatchGetEntityAction(id: string): void {
-      this.store.dispatch(cityActions.getCity({ id }));
-  }
+    public dispatchUpdateEntityAction(city: CityEntityUpdate): void {
+        this.store.dispatch(cityActions.updateCity({ city }));
+    }
 
-  public dispatchListEntitiesAction(): void {
-      this.store.dispatch(cityActions.listCitys());
-  }
+    public isLoading$(): Observable<boolean> {
+        return this.store.pipe(select(CitySelectors.getCityLoading));
+    }
 
-  public dispatchUpdateEntityAction(city: CityEntityUpdate): void {
-      this.store.dispatch(cityActions.updateCity({ city }));
-  }
+    public override selectEntity$(
+        id: string
+    ): Observable<CityEntity | undefined> {
+        return this.store.pipe(select(CitySelectors.selectCityById(id)));
+    }
 
-  public isLoading$(): Observable<boolean> {
-      return this.store.pipe(select(CitySelectors.getCityLoading));
-  }
+    public selectEntityList$(): Observable<CityEntity[]> {
+        return this.store.pipe(select(CitySelectors.getAllCity));
+    }
 
-  public override selectEntity$(
-      id: string
-  ): Observable<CityEntity | undefined> {
-      return this.store.pipe(select(CitySelectors.selectCityById(id)));
-  }
-
-  public selectEntityList$(): Observable<CityEntity[]> {
-      return this.store.pipe(select(CitySelectors.getAllCity));
-  }
-
-  public selectNewEntityButtonEnabled$(): Observable<boolean> {
-    return this.store.pipe(
-      select(CitySelectors.isNewEntityButtonEnabled)
-    );
-  } 
-
-
-  // constructor(private store: Store<CityPartialState>) {
-  //   super();
-  // }
-
-
-  // public override dispatchAddEntityAction(city: CityModel): void {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override dispatchChangeEntityButtonEnabled(enabled: boolean): void {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override dispatchGetEntityAction(cityId: number): void {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override dispatchListEntitiesAction(): void {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override dispatchSetEntityAction(city: CityEntity | null): void {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override dispatchUpdateEntityAction(entity: CityEntityUpdate): void {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override selectEntity$(cityId: number): Observable<CityEntity | undefined> {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override selectEntityList$(): Observable<CityEntity[]> {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override selectNewEntityButtonEnabled$(): Observable<boolean> {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // public override selectSelectedEntity$(): Observable<CityEntity | null> {
-  //   throw new Error('Method not implemented.');
-  // }
-
-  // #endregion Public Methods (10)
+    public selectNewEntityButtonEnabled$(): Observable<boolean> {
+		return this.store.pipe(
+			select(CitySelectors.isNewEntityButtonEnabled)
+		);
+	} 
 }

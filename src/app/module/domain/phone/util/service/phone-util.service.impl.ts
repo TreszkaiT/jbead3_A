@@ -18,8 +18,9 @@ export class PhoneUtilServiceImpl extends PhoneUtilService {
     }
 
     public createEntity(formGroup: FormGroup): PhoneEntityAdd {
+
         return {
-            code: formGroup.value['code'],
+            code: (formGroup.value['code'] as string).trim(),
             pnumber: formGroup.value['pnumber'],
         };
     }
@@ -33,6 +34,7 @@ export class PhoneUtilServiceImpl extends PhoneUtilService {
     }
 
     public updateEntity(formGroup: FormGroup): PhoneEntityUpdate {
+
         return {
             code: formGroup.value['code'],
             pnumber: formGroup.value['pnumber'],

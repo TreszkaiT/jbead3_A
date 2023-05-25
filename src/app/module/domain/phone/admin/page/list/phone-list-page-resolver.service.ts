@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 
 @Injectable()
-export class PhoneListPageResolverService implements Resolve<void> {             // ide tesszük a serverről jött listázásokat
+export class PhoneListPageResolverService implements Resolve<void> {
     constructor(private phoneStoreService: PhoneStoreService) {}
 
     public resolve(): void {

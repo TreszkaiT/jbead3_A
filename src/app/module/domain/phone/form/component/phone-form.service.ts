@@ -36,11 +36,11 @@ export class PhoneFormService {
         });
     }
 
-    public init$(): Observable<PhoneFormParams> {
+    public init$(): Observable<PhoneFormParams> {  // a logika, mely a Phone-t dropdown menüben betölti a Phone-hez
         return this.activatedRoute.params.pipe(
             switchMap((data) =>
                 combineLatest([
-                    this.phoneStoreService.selectEntity$(data['phoneId']),
+                    this.phoneStoreService.selectEntity$(data['phoneId']),                    
                 ])
             ),
             switchMap(([phone]) => {
@@ -59,11 +59,11 @@ export class PhoneFormService {
         console.log(file);
     }
 
-    public submit(): void {
-        if (this.phone) {
-            this.updatePhone();
+    public submit(): void {                     // ha a Submit-ra kattintok, akkor
+        if (this.phone) {                        // ha van már ilyen Phone, akkor
+            this.updatePhone();                  // updatelem
         } else {
-            this.addPhone();
+            this.addPhone();                     // amúgy meg létrehozom
         }
 
         this.router.navigate(['../../list'], {
@@ -71,8 +71,8 @@ export class PhoneFormService {
         });
     }
 
-    private addPhone(): void {
-        const phone: PhoneEntityAdd = this.phoneUtilService.createEntity(
+    private addPhone(): void {       // a phoneUtilService-el készít nekünk egy új Phonet
+        const phone: PhoneEntityAdd = this.phoneUtilService.createEntity(       // itt a util/service/ -ben van
             this.params.formGroup
         );
 
@@ -87,8 +87,8 @@ export class PhoneFormService {
         return phoneFormParams;
     }
 
-    private updatePhone(): void {
-        const phone: PhoneEntityUpdate = this.phoneUtilService.updateEntity(
+    private updatePhone(): void {       // a phoneUtilService-el készít nekünk egy létező Phonet, amit majd be tudunk updatelni
+        const phone: PhoneEntityUpdate = this.phoneUtilService.updateEntity(       // itt a util/service/ -ben van
             this.params.formGroup
         );
 
