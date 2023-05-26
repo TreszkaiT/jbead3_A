@@ -21,28 +21,31 @@ export class UserUtilServiceImpl extends UserUtilService {
         return {
             lastName: formGroup.value['lastName'],
             email: formGroup.value['email'],
-            city: formGroup.value['city'], 
             firstName: (formGroup.value['firstName'] as string).trim(),
+            city: formGroup.value['city'], 
+            phone: formGroup.value['phone'],
         };
     }
 
     public createFormGroup(user: UserEntity | undefined): FormGroup {   // új FormGroup-ot
         return this.formBuilder.group({
-            city: [user?.city],                                          // itt teszem bele a City-t
             lastName: [user?.lastName, Validators.required],
             email: [user?.email, Validators.required],
             firstName: [user?.firstName, Validators.required],
             id: [user?.id],
+            city: [user?.city],                                          // itt teszem bele a City-t
+            phone: [user?.phone],
         });
     }
 
     public updateEntity(formGroup: FormGroup): UserEntityUpdate {       // és updatelem az Entity-t
         return {
-            city: formGroup.value['city'], 
             lastName: formGroup.value['lastName'],
             email: formGroup.value['email'],
             firstName: (formGroup.value['firstName'] as string).trim(),
             id: formGroup.value['id'],
+            city: formGroup.value['city'], 
+            phone: formGroup.value['phone'],
         };
     }
 }
