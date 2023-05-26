@@ -22,7 +22,7 @@ export class PictureUtilServiceImpl extends PictureUtilService {
         return {
             name: (formGroup.value['name'] as string).trim(),
             type: formGroup.value['type'],
-            uuid: formGroup.value['uuid'],
+            // uuid: formGroup.value['uuid'],
         };
     }
 
@@ -30,7 +30,7 @@ export class PictureUtilServiceImpl extends PictureUtilService {
         return this.formBuilder.group({
             type: [picture?.type, Validators.required],
             name: [picture?.name, Validators.required],
-            uuid: [picture?.uuid, Validators.required],
+            // uuid: [picture?.uuid, Validators.required],
             id: [picture?.id],
         });
     }
@@ -40,7 +40,7 @@ export class PictureUtilServiceImpl extends PictureUtilService {
         return {
             name: formGroup.value['name'],
             type: formGroup.value['type'],
-            uuid: formGroup.value['uuid'],
+            // uuid: formGroup.value['uuid'],
             id: formGroup.value['id'],
         };
     }

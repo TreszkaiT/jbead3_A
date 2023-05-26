@@ -53,13 +53,13 @@ const routes: Routes = [
             (module) => module.PhoneAdminPageModule
           ),
       },  
-      // {
-      //   path: 'picture',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/picture/admin/picture-admin-page.module').then(
-      //       (module) => module.PictureAdminPageModule
-      //     ),
-      // },     
+      {
+        path: 'picture',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/picture/admin/picture-admin-page.module').then(
+            (module) => module.PictureAdminPageModule
+          ),
+      },     
       // {
       //   path: 'study',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>

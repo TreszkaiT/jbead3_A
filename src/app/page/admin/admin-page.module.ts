@@ -20,6 +20,9 @@ import { AdminPageComponent } from './component/page/admin-page.component';
 import { SocialmediaModule } from 'src/app/module/domain/socialmedia/socialmedia.module';
 import { SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
 import { SocialmediaStoreServiceImpl } from 'src/app/module/domain/socialmedia/store/service';
+import { PictureModule } from 'src/app/module/domain/picture/picture.module';
+import { PictureStoreService } from 'src/app/api/domain/picture';
+import { PictureStoreServiceImpl } from 'src/app/module/domain/picture/store/service';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -30,7 +33,8 @@ import { SocialmediaStoreServiceImpl } from 'src/app/module/domain/socialmedia/s
     CityModule,                                                    // e nélkül City module nem jelenik meg az admin menü city bal menüpont (entitás) - ra kattintva
     UserModule,
     PhoneModule,
-    SocialmediaModule
+    SocialmediaModule,
+    PictureModule
   ],
   // providers: [
   //   {
@@ -51,7 +55,10 @@ import { SocialmediaStoreServiceImpl } from 'src/app/module/domain/socialmedia/s
       provide: SocialmediaStoreService,
       useClass: SocialmediaStoreServiceImpl
     },
-
+    {
+      provide: PictureStoreService,
+      useClass: PictureStoreServiceImpl
+    },
     // {
     //   provide: CityDataService,
     //   useClass: CityDataServiceImpl,

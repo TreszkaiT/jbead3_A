@@ -7,7 +7,7 @@ export const PICTURE_FEATURE_KEY = 'picture';
 export interface PictureModel {
   name: string;
   type: string;
-  uuid: string;
+  // uuid: string;
 }
 
 export type PictureEntity = PictureModel & Identifiable;
