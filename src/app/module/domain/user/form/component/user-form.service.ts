@@ -15,6 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CityEntity, CityStoreService } from 'src/app/api/domain/city';
 import { PhoneEntity, PhoneStoreService } from 'src/app/api/domain/phone';
 import { compileDeclareClassMetadata } from '@angular/compiler';
+import { SocialmediaEntity, SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
 
 @Injectable()
 export class UserFormService {
@@ -29,6 +30,7 @@ export class UserFormService {
         private userUtilService: UserUtilService,
         private cityStoreService: CityStoreService,
         private phoneStoreService: PhoneStoreService,
+        private socialmediaStoreService: SocialmediaStoreService,
 
         private router: Router
     ) {
@@ -47,13 +49,14 @@ export class UserFormService {
                 combineLatest([
                     this.userStoreService.selectEntity$(data['userId']),
                     this.cityStoreService.selectEntityList$(),
-                    this.phoneStoreService.selectEntityList$()
+                    this.phoneStoreService.selectEntityList$(),
+                    this.socialmediaStoreService.selectEntityList$(), 
                 ])
             ),
-            switchMap(([user, cities, phones]) => {
+            switchMap(([user, cities, phones, socialmedias]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities, phones);
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias);
 
                 this.params$$.next(this.params);
 
@@ -86,11 +89,12 @@ export class UserFormService {
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
-            cities,
             formGroup,
+            cities,
             phones,
+            socialmedias,
         };
 
         return userFormParams;

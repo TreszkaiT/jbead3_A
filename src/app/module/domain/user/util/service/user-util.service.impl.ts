@@ -24,6 +24,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             firstName: (formGroup.value['firstName'] as string).trim(),
             city: formGroup.value['city'], 
             phone: formGroup.value['phone'],
+            socialmedia: formGroup.value['socialmedia'],
         };
     }
 
@@ -35,6 +36,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             id: [user?.id],
             city: [user?.city],                                          // itt teszem bele a City-t
             phone: [user?.phone],
+            socialmedia: [user?.socialmedia],
         });
     }
 
@@ -46,6 +48,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             id: formGroup.value['id'],
             city: formGroup.value['city'], 
             phone: formGroup.value['phone'],
+            socialmedia: formGroup.value['socialmedia'],
         };
     }
 }

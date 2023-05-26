@@ -17,6 +17,9 @@ import { AdminPageRoutingModule } from './admin-page-routing.module';
 import { LeftSidebarComponent } from './component/left-sidebar/left-sidebar.component';
 import { AdminListsPageResolverService } from './component/list';
 import { AdminPageComponent } from './component/page/admin-page.component';
+import { SocialmediaModule } from 'src/app/module/domain/socialmedia/socialmedia.module';
+import { SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
+import { SocialmediaStoreServiceImpl } from 'src/app/module/domain/socialmedia/store/service';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -26,7 +29,8 @@ import { AdminPageComponent } from './component/page/admin-page.component';
     //SharedModule
     CityModule,                                                    // e nélkül City module nem jelenik meg az admin menü city bal menüpont (entitás) - ra kattintva
     UserModule,
-    PhoneModule
+    PhoneModule,
+    SocialmediaModule
   ],
   // providers: [
   //   {
@@ -42,6 +46,10 @@ import { AdminPageComponent } from './component/page/admin-page.component';
     {
       provide: CityStoreService,
       useClass: CityStoreServiceImpl,
+    },
+    {
+      provide: SocialmediaStoreService,
+      useClass: SocialmediaStoreServiceImpl
     },
 
     // {
