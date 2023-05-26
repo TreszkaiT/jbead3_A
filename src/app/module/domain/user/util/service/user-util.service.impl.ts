@@ -21,14 +21,14 @@ export class UserUtilServiceImpl extends UserUtilService {
         return {
             lastName: formGroup.value['lastName'],
             email: formGroup.value['email'],
-            city: formGroup.value['city'],
+            city: formGroup.value['city'], 
             firstName: (formGroup.value['firstName'] as string).trim(),
         };
     }
 
     public createFormGroup(user: UserEntity | undefined): FormGroup {   // új FormGroup-ot
         return this.formBuilder.group({
-            city: [user?.city],                                         // itt teszem bele a City-t
+            city: [user?.city],                                          // itt teszem bele a City-t
             lastName: [user?.lastName, Validators.required],
             email: [user?.email, Validators.required],
             firstName: [user?.firstName, Validators.required],
@@ -38,7 +38,7 @@ export class UserUtilServiceImpl extends UserUtilService {
 
     public updateEntity(formGroup: FormGroup): UserEntityUpdate {       // és updatelem az Entity-t
         return {
-            city: formGroup.value['city'],
+            city: formGroup.value['city'], 
             lastName: formGroup.value['lastName'],
             email: formGroup.value['email'],
             firstName: (formGroup.value['firstName'] as string).trim(),

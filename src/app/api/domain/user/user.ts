@@ -22,7 +22,7 @@ export type UserEntityUpdate = Partial<UserEntity> & Identifiable;
 
 export type UserFormParams = {
   formGroup: FormGroup;
-  cities: CityEntity[];
+  cities: CityEntity[];                                                   // user-hez egy city hozzáadása
 };
 
 export type UserTableParams = {
