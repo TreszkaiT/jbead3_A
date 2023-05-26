@@ -5,6 +5,7 @@ import { CityEntity } from '../city';
 import { Identifiable } from '../../identifiable';
 import { PhoneEntity } from '../phone';
 import { SocialmediaEntity } from '../socialmedia';
+import { PictureEntity } from '../picture';
 
 export const USER_FEATURE_KEY = 'user';
 
@@ -15,7 +16,8 @@ export interface UserModel {
   lastName?: string;
   city?: CityEntity;
   phone?: PhoneEntity;
-  socialmedia: SocialmediaEntity;  
+  socialmedia?: SocialmediaEntity;  
+  picture?: PictureEntity
 }
 
 export type UserEntity = UserModel & Identifiable;
@@ -29,6 +31,7 @@ export type UserFormParams = {
   cities: CityEntity[];                                                   // user-hez egy city hozzáadása
   phones: PhoneEntity[];
   socialmedias: SocialmediaEntity[];
+  pictures: PictureEntity[];
 };
 
 export type UserTableParams = {

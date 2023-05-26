@@ -72,6 +72,20 @@
 			</span>
 		</div> 
 
+		<div class="field">
+			<span class="p-float-label">
+				<p-dropdown
+					id="picture"
+					optionLabel="name"				
+					[options]="params.pictures"
+					placeholder="Select a picture"
+					formControlName="picture"
+				></p-dropdown>
+
+				<label for="picture">Picture</label>
+			</span>
+		</div> 
+
 		<div style="margin-top: 10px" fxLayout="row" fxLayoutAlign="space-around">
 			<button pButton type="button" label="Submit" (click)="submit()"
 				[disabled]="!params.formGroup.valid"></button>

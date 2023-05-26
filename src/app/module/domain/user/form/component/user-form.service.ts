@@ -16,6 +16,7 @@ import { CityEntity, CityStoreService } from 'src/app/api/domain/city';
 import { PhoneEntity, PhoneStoreService } from 'src/app/api/domain/phone';
 import { compileDeclareClassMetadata } from '@angular/compiler';
 import { SocialmediaEntity, SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
+import { PictureEntity, PictureStoreService } from 'src/app/api/domain/picture';
 
 @Injectable()
 export class UserFormService {
@@ -31,6 +32,7 @@ export class UserFormService {
         private cityStoreService: CityStoreService,
         private phoneStoreService: PhoneStoreService,
         private socialmediaStoreService: SocialmediaStoreService,
+        private pictureStoreService: PictureStoreService,
 
         private router: Router
     ) {
@@ -51,12 +53,13 @@ export class UserFormService {
                     this.cityStoreService.selectEntityList$(),
                     this.phoneStoreService.selectEntityList$(),
                     this.socialmediaStoreService.selectEntityList$(), 
+                    this.pictureStoreService.selectEntityList$(),
                 ])
             ),
-            switchMap(([user, cities, phones, socialmedias]) => {
+            switchMap(([user, cities, phones, socialmedias, pictures]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias);
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures);
 
                 this.params$$.next(this.params);
 
@@ -89,12 +92,13 @@ export class UserFormService {
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
             formGroup,
             cities,
             phones,
             socialmedias,
+            pictures,
         };
 
         return userFormParams;

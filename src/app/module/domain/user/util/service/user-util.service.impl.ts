@@ -25,6 +25,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             city: formGroup.value['city'], 
             phone: formGroup.value['phone'],
             socialmedia: formGroup.value['socialmedia'],
+            picture: formGroup.value['picture'],
         };
     }
 
@@ -37,6 +38,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             city: [user?.city],                                          // itt teszem bele a City-t
             phone: [user?.phone],
             socialmedia: [user?.socialmedia],
+            picture: [user?.picture],
         });
     }
 
@@ -49,6 +51,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             city: formGroup.value['city'], 
             phone: formGroup.value['phone'],
             socialmedia: formGroup.value['socialmedia'],
+            picture: formGroup.value['picture'],
         };
     }
 }
