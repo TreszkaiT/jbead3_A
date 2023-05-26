@@ -1,0 +1,28 @@
+<section class="artist-form" *ngIf="params$ | async as params">
+	<form [formGroup]="params.formGroup">
+		<input name="id" formControlName="id" hidden />
+
+		<div class="field">
+			<span class="p-float-label">
+				<input id="code" type="text" pInputText formControlName="code" />
+
+				<label for="code">Code</label>
+			</span>
+		</div>
+
+		<div class="field">
+			<span class="p-float-label">
+				<input id="pnumber" type="text" pInputText formControlName="pnumber" />
+
+				<label for="pnumber">Phone Number</label>
+			</span>
+		</div>
+
+		<div style="margin-top: 10px" fxLayout="row" fxLayoutAlign="space-around">
+			<button pButton type="button" label="Submit" (click)="submit()"
+				[disabled]="!params.formGroup.valid"></button>
+
+			<button pButton type="button" label="Cancel" (click)="cancel()"></button>
+		</div>
+	</form>
+</section>

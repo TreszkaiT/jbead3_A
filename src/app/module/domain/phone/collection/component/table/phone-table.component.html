@@ -1,0 +1,31 @@
+<section class="artist-table" *ngIf="params$ | async as params">
+	<p-table [value]="params.phones" sortField="code" sortMode="multiple" styleClass="p-datatable-striped p-datatable-sm"
+		responsiveLayout="scroll" [paginator]="true" [rows]="10">
+		<ng-template pTemplate="header">
+			<tr>
+				<th pSortableColumn="code">
+					Code <p-sortIcon field="code"></p-sortIcon>
+				</th>
+
+				<th pSortableColumn="pnumber">
+					Phone Number <p-sortIcon field="pnumber"></p-sortIcon>
+				</th>
+
+				<th></th>
+			</tr>
+		</ng-template>
+
+		<ng-template pTemplate="body" let-phone>
+			<tr>
+				<td>{{ phone.code }}</td>
+
+				<td>{{ phone.pnumber }}</td>
+
+				<td>
+					<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+						(click)="editPhone(phone)"></button>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</section>

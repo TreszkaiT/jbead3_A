@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 
-import { UserEntity } from '../user';
+import { UserEntity } from '../domain/user';
 import { LoginModel, RegistrationModel } from './authentication';
 
 export abstract class AuthenticationStoreService {

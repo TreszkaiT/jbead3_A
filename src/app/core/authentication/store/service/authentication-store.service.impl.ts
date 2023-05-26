@@ -4,7 +4,7 @@ import {
   LoginModel,
   RegistrationModel,
 } from 'src/app/api/authentication';
-import { UserEntity } from 'src/app/api/user';
+import { UserEntity } from 'src/app/api/domain/user';
 
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';

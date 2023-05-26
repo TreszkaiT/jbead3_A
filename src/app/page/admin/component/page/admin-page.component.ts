@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { CityStoreService } from 'src/app/api/city';
-import { UserStoreService } from 'src/app/api/user';
+import { CityStoreService } from 'src/app/api/domain/city';
+import { UserStoreService } from 'src/app/api/domain/user';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

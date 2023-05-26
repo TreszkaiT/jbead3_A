@@ -4,7 +4,7 @@ import {
   LoginModel,
   RegistrationModel,
 } from 'src/app/api/authentication';
-import { UserEntity } from 'src/app/api/user';
+import { UserEntity } from 'src/app/api/domain/user';
 import { environment } from 'src/environments/environment';
 
 import { HttpClient } from '@angular/common/http';
