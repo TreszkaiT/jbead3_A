@@ -3,7 +3,7 @@ import { AuthenticationDataService } from 'src/app/api/authentication';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { AuthenticationDataServiceImpl, AuthenticationDataServiceMock } from './service';
+import { AuthenticationDataServiceImpl } from './service';
 
 @NgModule({
   declarations: [],

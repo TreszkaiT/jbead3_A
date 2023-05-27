@@ -13,6 +13,10 @@ import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CityEntity, CityStoreService } from 'src/app/api/domain/city';
+import { PhoneEntity, PhoneStoreService } from 'src/app/api/domain/phone';
+import { compileDeclareClassMetadata } from '@angular/compiler';
+import { SocialmediaEntity, SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
+import { PictureEntity, PictureStoreService } from 'src/app/api/domain/picture';
 
 @Injectable()
 export class UserFormService {
@@ -22,10 +26,13 @@ export class UserFormService {
     private user!: UserEntity | undefined;
 
     public constructor(
-        private activatedRoute: ActivatedRoute,
-        private cityStoreService: CityStoreService,
+        private activatedRoute: ActivatedRoute,        
         private userStoreService: UserStoreService,
         private userUtilService: UserUtilService,
+        private cityStoreService: CityStoreService,
+        private phoneStoreService: PhoneStoreService,
+        private socialmediaStoreService: SocialmediaStoreService,
+        private pictureStoreService: PictureStoreService,
 
         private router: Router
     ) {
@@ -43,13 +50,16 @@ export class UserFormService {
             switchMap((data) =>
                 combineLatest([
                     this.userStoreService.selectEntity$(data['userId']),
-                    this.cityStoreService.selectEntityList$()
+                    this.cityStoreService.selectEntityList$(),
+                    this.phoneStoreService.selectEntityList$(),
+                    this.socialmediaStoreService.selectEntityList$(), 
+                    this.pictureStoreService.selectEntityList$(),
                 ])
             ),
-            switchMap(([user, cities]) => {
+            switchMap(([user, cities, phones, socialmedias, pictures]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities);
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures);
 
                 this.params$$.next(this.params);
 
@@ -78,14 +88,17 @@ export class UserFormService {
         const user: UserEntityAdd = this.userUtilService.createEntity(       // itt a util/service/ -ben van
             this.params.formGroup
         );
-
+//console.log('user'+user);
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
-            cities,
             formGroup,
+            cities,
+            phones,
+            socialmedias,
+            pictures,
         };
 
         return userFormParams;

@@ -15,6 +15,12 @@
 
 				<th>City</th>
 
+				<th>Phone</th>
+
+				<th>Social Media</th>
+
+				<th>Picture</th>
+
 				<th></th>
 			</tr>
 		</ng-template>
@@ -31,6 +37,18 @@
 
 				<td>
 					{{ user.city?.name }} 
+				</td>
+
+				<td>
+					{{ user.phone?.code }} {{ user.phone?.pnumber }}
+				</td>
+
+				<td>
+					{{ user.socialmedia?.name }} 
+				</td>
+
+				<td>
+					{{ user.picture?.name }} 
 				</td>
 
 				<td>
