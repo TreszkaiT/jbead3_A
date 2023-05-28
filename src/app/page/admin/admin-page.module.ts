@@ -23,6 +23,8 @@ import { SocialmediaStoreServiceImpl } from 'src/app/module/domain/socialmedia/s
 import { PictureModule } from 'src/app/module/domain/picture/picture.module';
 import { PictureStoreService } from 'src/app/api/domain/picture';
 import { PictureStoreServiceImpl } from 'src/app/module/domain/picture/store/service';
+import { PhoneStoreService } from 'src/app/api/domain/phone';
+import { PhoneStoreServiceImpl } from 'src/app/module/domain/phone/store/service';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -34,7 +36,8 @@ import { PictureStoreServiceImpl } from 'src/app/module/domain/picture/store/ser
     UserModule,
     PhoneModule,
     SocialmediaModule,
-    PictureModule
+    PictureModule,
+    PhoneModule,
   ],
   // providers: [
   //   {
@@ -59,11 +62,15 @@ import { PictureStoreServiceImpl } from 'src/app/module/domain/picture/store/ser
       provide: PictureStoreService,
       useClass: PictureStoreServiceImpl
     },
+    {
+      provide: PhoneStoreService,
+      useClass: PhoneStoreServiceImpl
+    },
     // {
     //   provide: CityDataService,
     //   useClass: CityDataServiceImpl,
     // }
-    //AdminListsPageResolverService,                                // hogy a listákat egyből a serverről betöltse a dispatchListEntity, mert amgy csak akkor tölti be, ha az adminon belül az egyik Entitás-ról átkattintunk a másikra és vissza 
+    AdminListsPageResolverService,                                // hogy a listákat egyből a serverről betöltse a dispatchListEntity, mert amgy csak akkor tölti be, ha az adminon belül az egyik Entitás-ról átkattintunk a másikra és vissza 
     //UserListPageResolverService,
     //CityListPageResolverService
   ]
