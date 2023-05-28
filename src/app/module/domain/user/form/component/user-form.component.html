@@ -86,6 +86,20 @@
 			</span>
 		</div> 
 
+		<div class="field">
+			<span class="p-float-label">
+				<p-dropdown
+					id="language"
+					optionLabel="name"				
+					[options]="params.languages"
+					placeholder="Select a language"
+					formControlName="language"
+				></p-dropdown>
+
+				<label for="language">Language</label>
+			</span>
+		</div> 
+
 		<div style="margin-top: 10px" fxLayout="row" fxLayoutAlign="space-around">
 			<button pButton type="button" label="Submit" (click)="submit()"
 				[disabled]="!params.formGroup.valid"></button>

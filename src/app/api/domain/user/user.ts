@@ -6,6 +6,7 @@ import { Identifiable } from '../../identifiable';
 import { PhoneEntity } from '../phone';
 import { SocialmediaEntity } from '../socialmedia';
 import { PictureEntity } from '../picture';
+import { LanguageEntity } from '../language';
 
 export const USER_FEATURE_KEY = 'user';
 
@@ -18,6 +19,7 @@ export interface UserModel {
   phone?: PhoneEntity;
   socialmedia?: SocialmediaEntity;  
   picture?: PictureEntity
+  language?: LanguageEntity
 }
 
 export type UserEntity = UserModel & Identifiable;
@@ -32,6 +34,7 @@ export type UserFormParams = {
   phones: PhoneEntity[];
   socialmedias: SocialmediaEntity[];
   pictures: PictureEntity[];
+  languages: LanguageEntity[];
 };
 
 export type UserTableParams = {
