@@ -32,13 +32,13 @@ const routes: Routes = [
           //resolve: { data: AdminListsPageResolverService },
           //resolve: { data: CityListPageResolverService },
       },
-      // {
-      //   path: 'language',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/language/admin/language-admin-page.module').then(
-      //       (module) => module.LanguageAdminPageModule
-      //     ),
-      // },  
+      {
+        path: 'language',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/language/admin/language-admin-page.module').then(
+            (module) => module.LanguageAdminPageModule
+          ),
+      },  
       // {
       //   path: 'otherskill',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
       //   loadChildren: () =>
