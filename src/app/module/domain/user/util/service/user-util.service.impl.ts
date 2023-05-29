@@ -30,6 +30,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             messageapp: formGroup.value['messageapp'],
             otherskill: formGroup.value['otherskill'],
             proofexperience: formGroup.value['proofexperience'],
+            study: formGroup.value['study'],
         };
     }
 
@@ -47,6 +48,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             messageapp: [user?.messageapp],
             otherskill: [user?.otherskill],
             proofexperience: [user?.proofexperience],
+            study: [user?.study],
         });
     }
 
@@ -64,6 +66,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             messageapp: formGroup.value['messageapp'],
             otherskill: formGroup.value['otherskill'],
             proofexperience: formGroup.value['proofexperience'],
+            study: formGroup.value['study'],
         };
     }
 }
