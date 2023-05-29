@@ -31,6 +31,9 @@ import { LanguageStoreServiceImpl } from 'src/app/module/domain/language/store/s
 import { MessageappModule } from 'src/app/module/domain/messageapp/messageapp.module';
 import { MessageappStoreService } from 'src/app/api/domain/messageapp';
 import { MessageappStoreServiceImpl } from 'src/app/module/domain/messageapp/store/service';
+import { OtherskillModule } from 'src/app/module/domain/otherskill/otherskill.module';
+import { OtherskillStoreService } from 'src/app/api/domain/otherskill';
+import { OtherskillStoreServiceImpl } from 'src/app/module/domain/otherskill/store/service';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -45,7 +48,8 @@ import { MessageappStoreServiceImpl } from 'src/app/module/domain/messageapp/sto
     PictureModule,
     PhoneModule,
     LanguageModule,
-    MessageappModule
+    MessageappModule,
+    OtherskillModule
   ],
   // providers: [
   //   {
@@ -81,6 +85,10 @@ import { MessageappStoreServiceImpl } from 'src/app/module/domain/messageapp/sto
     {
       provide: MessageappStoreService,
       useClass: MessageappStoreServiceImpl
+    },
+    {
+      provide: OtherskillStoreService,
+      useClass: OtherskillStoreServiceImpl
     },
     // {
     //   provide: CityDataService,

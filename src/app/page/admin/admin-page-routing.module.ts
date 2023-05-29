@@ -39,13 +39,13 @@ const routes: Routes = [
             (module) => module.LanguageAdminPageModule
           ),
       },  
-      // {
-      //   path: 'otherskill',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/otherskill/admin/otherskill-admin-page.module').then(
-      //       (module) => module.OtherskillAdminPageModule
-      //     ),
-      // },    
+      {
+        path: 'otherskill',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/otherskill/admin/otherskill-admin-page.module').then(
+            (module) => module.OtherskillAdminPageModule
+          ),
+      },    
       {
         path: 'phone',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
         loadChildren: () =>
