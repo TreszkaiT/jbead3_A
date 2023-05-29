@@ -29,9 +29,15 @@
 
 		<ng-template pTemplate="body" let-study>
 			<tr>
-				<td>{{ study.name }}</td>
+				<td>{{ study.nameSchool }}</td>
 
-				<td>{{ study.zip }}</td>
+				<td>{{ study.from }}</td>
+
+				<td>{{ study.to }}</td>
+
+				<td>{{ study.comment }}</td>
+
+				<td>{{ study.level }}</td>
 
 				<td>
 					<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
