@@ -34,6 +34,9 @@ import { MessageappStoreServiceImpl } from 'src/app/module/domain/messageapp/sto
 import { OtherskillModule } from 'src/app/module/domain/otherskill/otherskill.module';
 import { OtherskillStoreService } from 'src/app/api/domain/otherskill';
 import { OtherskillStoreServiceImpl } from 'src/app/module/domain/otherskill/store/service';
+import { ProofexperienceModule } from 'src/app/module/domain/proofexperience/proofexperience.module';
+import { ProofexperienceStoreService } from 'src/app/api/domain/proofexperience';
+import { ProofexperienceStoreServiceImpl } from 'src/app/module/domain/proofexperience/store/service';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -49,7 +52,8 @@ import { OtherskillStoreServiceImpl } from 'src/app/module/domain/otherskill/sto
     PhoneModule,
     LanguageModule,
     MessageappModule,
-    OtherskillModule
+    OtherskillModule,
+    ProofexperienceModule,
   ],
   // providers: [
   //   {
@@ -89,6 +93,10 @@ import { OtherskillStoreServiceImpl } from 'src/app/module/domain/otherskill/sto
     {
       provide: OtherskillStoreService,
       useClass: OtherskillStoreServiceImpl
+    },
+    {
+      provide: ProofexperienceStoreService,
+      useClass: ProofexperienceStoreServiceImpl
     },
     // {
     //   provide: CityDataService,
