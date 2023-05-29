@@ -13,19 +13,19 @@ export class AdminListsPageResolverService implements Resolve<void> {           
     constructor(
         private userStoreService: UserStoreService, 
         private cityStoreService: CityStoreService,
-        // private languageStoreService: LanguageStoreService,
         private phoneStoreService: PhoneStoreService,
         private pictureStoreService: PictureStoreService,
-        private socialmedaiStoreService: SocialmediaStoreService
+        private socialmedaiStoreService: SocialmediaStoreService,
+        private languageStoreService: LanguageStoreService,
         ) {}
 
     public resolve(): void {
         //this.userStoreService.dispatchChangeNewEntityButtonEnabled(true);
         this.userStoreService.dispatchListEntitiesAction();
-        this.cityStoreService.dispatchListEntitiesAction();
-        // this.languageStoreService.dispatchListEntitiesAction();
+        this.cityStoreService.dispatchListEntitiesAction();        
         this.phoneStoreService.dispatchListEntitiesAction();
         this.pictureStoreService.dispatchListEntitiesAction();
         this.socialmedaiStoreService.dispatchListEntitiesAction();
+        this.languageStoreService.dispatchListEntitiesAction();
     }
 }

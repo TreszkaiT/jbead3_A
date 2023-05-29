@@ -25,6 +25,9 @@ import { PictureStoreService } from 'src/app/api/domain/picture';
 import { PictureStoreServiceImpl } from 'src/app/module/domain/picture/store/service';
 import { PhoneStoreService } from 'src/app/api/domain/phone';
 import { PhoneStoreServiceImpl } from 'src/app/module/domain/phone/store/service';
+import { LanguageModule } from 'src/app/module/domain/language/language.module';
+import { LanguageStoreService } from 'src/app/api/domain/language';
+import { LanguageStoreServiceImpl } from 'src/app/module/domain/language/store/service';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -38,6 +41,7 @@ import { PhoneStoreServiceImpl } from 'src/app/module/domain/phone/store/service
     SocialmediaModule,
     PictureModule,
     PhoneModule,
+    LanguageModule,
   ],
   // providers: [
   //   {
@@ -65,6 +69,10 @@ import { PhoneStoreServiceImpl } from 'src/app/module/domain/phone/store/service
     {
       provide: PhoneStoreService,
       useClass: PhoneStoreServiceImpl
+    },
+    {
+      provide: LanguageStoreService,
+      useClass: LanguageStoreServiceImpl
     },
     // {
     //   provide: CityDataService,
