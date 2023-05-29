@@ -67,13 +67,13 @@ const routes: Routes = [
       //       (module) => module.StudyAdminPageModule
       //     ),
       // },   
-      // {
-      //   path: 'proofexperience',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/proofexperience/admin/proofexperience-admin-page.module').then(
-      //       (module) => module.ProofexperienceAdminPageModule
-      //     ),
-      // }, 
+      {
+        path: 'proofexperience',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/proofexperience/admin/proofexperience-admin-page.module').then(
+            (module) => module.ProofexperienceAdminPageModule
+          ),
+      }, 
       {
         path: 'socialmedia',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
         loadChildren: () =>
