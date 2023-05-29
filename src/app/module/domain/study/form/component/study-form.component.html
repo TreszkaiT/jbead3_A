@@ -1,0 +1,52 @@
+<section class="artist-form" *ngIf="params$ | async as params">
+	<form [formGroup]="params.formGroup">
+		<input name="id" formControlName="id" hidden />
+
+		<div class="field">
+			<span class="p-float-label">
+				<input id="nameSchool" type="text" pInputText formControlName="nameSchool" />
+
+				<label for="nameSchool">School Name</label>
+			</span>
+		</div>
+
+		<div class="field">
+			<span class="p-float-label">
+				<input id="from" type="text" pInputText formControlName="from" />
+
+				<label for="from">From</label>
+			</span>
+		</div>
+
+		<div class="field">
+			<span class="p-float-label">
+				<input id="to" type="text" pInputText formControlName="to" />
+
+				<label for="to">To</label>
+			</span>
+		</div>
+
+		<div class="field">
+			<span class="p-float-label">
+				<input id="comment" type="text" pInputText formControlName="comment" />
+
+				<label for="comment">Comment</label>
+			</span>
+		</div>
+
+		<div class="field">
+			<span class="p-float-label">
+				<input id="level" type="text" pInputText formControlName="level" />
+
+				<label for="level">Level</label>
+			</span>
+		</div>
+
+		<div style="margin-top: 10px" fxLayout="row" fxLayoutAlign="space-around">
+			<button pButton type="button" label="Submit" (click)="submit()"
+				[disabled]="!params.formGroup.valid"></button>
+
+			<button pButton type="button" label="Cancel" (click)="cancel()"></button>
+		</div>
+	</form>
+</section>
