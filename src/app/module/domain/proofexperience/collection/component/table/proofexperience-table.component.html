@@ -1,0 +1,39 @@
+<section class="artist-table" *ngIf="params$ | async as params">
+	<p-table [value]="params.proofexperiences" sortField="name" sortMode="multiple" styleClass="p-datatable-striped p-datatable-sm"
+		responsiveLayout="scroll" [paginator]="true" [rows]="10">
+		<ng-template pTemplate="header">
+			<tr>
+				<th pSortableColumn="nameWork">
+					Work Name <p-sortIcon field="nameWork"></p-sortIcon>
+				</th>
+
+				<th pSortableColumn="from">
+					From <p-sortIcon field="from"></p-sortIcon>
+				</th>
+
+				<th pSortableColumn="to">
+					To <p-sortIcon field="to"></p-sortIcon>
+				</th>
+
+				<th pSortableColumn="comment">
+					Comment <p-sortIcon field="comment"></p-sortIcon>
+				</th>
+
+				<th></th>
+			</tr>
+		</ng-template>
+
+		<ng-template pTemplate="body" let-proofexperience>
+			<tr>
+				<td>{{ proofexperience.name }}</td>
+
+				<td>{{ proofexperience.zip }}</td>
+
+				<td>
+					<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+						(click)="editProofexperience(proofexperience)"></button>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</section>
