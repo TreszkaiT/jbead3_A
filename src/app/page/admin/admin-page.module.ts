@@ -37,6 +37,9 @@ import { OtherskillStoreServiceImpl } from 'src/app/module/domain/otherskill/sto
 import { ProofexperienceModule } from 'src/app/module/domain/proofexperience/proofexperience.module';
 import { ProofexperienceStoreService } from 'src/app/api/domain/proofexperience';
 import { ProofexperienceStoreServiceImpl } from 'src/app/module/domain/proofexperience/store/service';
+import { StudyModule } from 'src/app/module/domain/study/study.module';
+import { StudyStoreService } from 'src/app/api/domain/study';
+import { StudyStoreServiceImpl } from 'src/app/module/domain/study/store/service';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -54,6 +57,7 @@ import { ProofexperienceStoreServiceImpl } from 'src/app/module/domain/proofexpe
     MessageappModule,
     OtherskillModule,
     ProofexperienceModule,
+    StudyModule,
   ],
   // providers: [
   //   {
@@ -97,6 +101,10 @@ import { ProofexperienceStoreServiceImpl } from 'src/app/module/domain/proofexpe
     {
       provide: ProofexperienceStoreService,
       useClass: ProofexperienceStoreServiceImpl
+    },
+    {
+      provide: StudyStoreService,
+      useClass: StudyStoreServiceImpl
     },
     // {
     //   provide: CityDataService,
