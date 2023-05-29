@@ -18,6 +18,8 @@ import { compileDeclareClassMetadata } from '@angular/compiler';
 import { SocialmediaEntity, SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
 import { PictureEntity, PictureStoreService } from 'src/app/api/domain/picture';
 import { LanguageEntity, LanguageStoreService } from 'src/app/api/domain/language';
+import { MessageappStoreService } from '../../../../../api/domain/messageapp/messageapp-store.service';
+import { MessageappEntity } from 'src/app/api/domain/messageapp';
 
 @Injectable()
 export class UserFormService {
@@ -35,6 +37,7 @@ export class UserFormService {
         private socialmediaStoreService: SocialmediaStoreService,
         private pictureStoreService: PictureStoreService,
         private languageStoreService: LanguageStoreService,
+        private MessageappStoreService: MessageappStoreService,
 
         private router: Router
     ) {
@@ -57,12 +60,13 @@ export class UserFormService {
                     this.socialmediaStoreService.selectEntityList$(), 
                     this.pictureStoreService.selectEntityList$(),
                     this.languageStoreService.selectEntityList$(),
+                    this.MessageappStoreService.selectEntityList$(),
                 ])
             ),
-            switchMap(([user, cities, phones, socialmedias, pictures, languages]) => {
+            switchMap(([user, cities, phones, socialmedias, pictures, languages, messageapps]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages);
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages, messageapps);
 
                 this.params$$.next(this.params);
 
@@ -95,7 +99,7 @@ export class UserFormService {
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageapps: MessageappEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
             formGroup,
             cities,
@@ -103,6 +107,7 @@ export class UserFormService {
             socialmedias,
             pictures,
             languages,
+            messageapps
         };
 
         return userFormParams;

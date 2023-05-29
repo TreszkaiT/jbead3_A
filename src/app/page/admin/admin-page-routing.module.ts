@@ -81,13 +81,13 @@ const routes: Routes = [
             (module) => module.SocialmediaAdminPageModule
           ),
       },   
-      // {
-      //   path: 'messageapp',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/messageapp/admin/messageapp-admin-page.module').then(
-      //       (module) => module.MessageappAdminPageModule
-      //     ),
-      // },                                      
+      {
+        path: 'messageapp',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/messageapp/admin/messageapp-admin-page.module').then(
+            (module) => module.MessageappAdminPageModule
+          ),
+      },                                      
     ],
   },
 ];

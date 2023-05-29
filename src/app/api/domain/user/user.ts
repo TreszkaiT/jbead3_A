@@ -7,6 +7,7 @@ import { PhoneEntity } from '../phone';
 import { SocialmediaEntity } from '../socialmedia';
 import { PictureEntity } from '../picture';
 import { LanguageEntity } from '../language';
+import { MessageappEntity } from '../messageapp';
 
 export const USER_FEATURE_KEY = 'user';
 
@@ -18,8 +19,9 @@ export interface UserModel {
   city?: CityEntity;
   phone?: PhoneEntity;
   socialmedia?: SocialmediaEntity;  
-  picture?: PictureEntity
-  language?: LanguageEntity
+  picture?: PictureEntity;
+  language?: LanguageEntity;
+  messageapp?: MessageappEntity
 }
 
 export type UserEntity = UserModel & Identifiable;
@@ -35,6 +37,7 @@ export type UserFormParams = {
   socialmedias: SocialmediaEntity[];
   pictures: PictureEntity[];
   languages: LanguageEntity[];
+  messageapps: MessageappEntity[];
 };
 
 export type UserTableParams = {
