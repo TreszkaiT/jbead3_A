@@ -20,6 +20,7 @@ import { PictureEntity, PictureStoreService } from 'src/app/api/domain/picture';
 import { LanguageEntity, LanguageStoreService } from 'src/app/api/domain/language';
 import { MessageappStoreService } from '../../../../../api/domain/messageapp/messageapp-store.service';
 import { MessageappEntity } from 'src/app/api/domain/messageapp';
+import { OtherskillEntity, OtherskillStoreService } from 'src/app/api/domain/otherskill';
 
 @Injectable()
 export class UserFormService {
@@ -37,7 +38,8 @@ export class UserFormService {
         private socialmediaStoreService: SocialmediaStoreService,
         private pictureStoreService: PictureStoreService,
         private languageStoreService: LanguageStoreService,
-        private MessageappStoreService: MessageappStoreService,
+        private messageappStoreService: MessageappStoreService,
+        private otherskillStoreService: OtherskillStoreService,
 
         private router: Router
     ) {
@@ -60,13 +62,14 @@ export class UserFormService {
                     this.socialmediaStoreService.selectEntityList$(), 
                     this.pictureStoreService.selectEntityList$(),
                     this.languageStoreService.selectEntityList$(),
-                    this.MessageappStoreService.selectEntityList$(),
+                    this.messageappStoreService.selectEntityList$(),
+                    this.otherskillStoreService.selectEntityList$(),
                 ])
             ),
-            switchMap(([user, cities, phones, socialmedias, pictures, languages, messageapps]) => {
+            switchMap(([user, cities, phones, socialmedias, pictures, languages, messageapps, otherskills]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages, messageapps);
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages, messageapps, otherskills);
 
                 this.params$$.next(this.params);
 
@@ -99,7 +102,7 @@ export class UserFormService {
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageapps: MessageappEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageapps: MessageappEntity[], otherskills: OtherskillEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
             formGroup,
             cities,
@@ -107,7 +110,8 @@ export class UserFormService {
             socialmedias,
             pictures,
             languages,
-            messageapps
+            messageapps,
+            otherskills,
         };
 
         return userFormParams;

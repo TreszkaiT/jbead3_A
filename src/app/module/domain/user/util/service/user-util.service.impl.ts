@@ -28,6 +28,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             picture: formGroup.value['picture'],
             language: formGroup.value['language'],
             messageapp: formGroup.value['messageapp'],
+            otherskill: formGroup.value['otherskill'],
         };
     }
 
@@ -43,6 +44,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             picture: [user?.picture],
             language: [user?.language],
             messageapp: [user?.messageapp],
+            otherskill: [user?.otherskill],
         });
     }
 
@@ -58,6 +60,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             picture: formGroup.value['picture'],
             language: formGroup.value['language'],
             messageapp: formGroup.value['messageapp'],
+            otherskill: formGroup.value['otherskill'],
         };
     }
 }
