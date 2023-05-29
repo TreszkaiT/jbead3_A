@@ -27,6 +27,9 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: formGroup.value['socialmedia'],
             picture: formGroup.value['picture'],
             language: formGroup.value['language'],
+            messageapp: formGroup.value['messageapp'],
+            otherskill: formGroup.value['otherskill'],
+            proofexperience: formGroup.value['proofexperience'],
         };
     }
 
@@ -41,6 +44,9 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: [user?.socialmedia],
             picture: [user?.picture],
             language: [user?.language],
+            messageapp: [user?.messageapp],
+            otherskill: [user?.otherskill],
+            proofexperience: [user?.proofexperience],
         });
     }
 
@@ -55,6 +61,9 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: formGroup.value['socialmedia'],
             picture: formGroup.value['picture'],
             language: formGroup.value['language'],
+            messageapp: formGroup.value['messageapp'],
+            otherskill: formGroup.value['otherskill'],
+            proofexperience: formGroup.value['proofexperience'],
         };
     }
 }

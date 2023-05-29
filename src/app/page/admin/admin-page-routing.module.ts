@@ -39,13 +39,13 @@ const routes: Routes = [
             (module) => module.LanguageAdminPageModule
           ),
       },  
-      // {
-      //   path: 'otherskill',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/otherskill/admin/otherskill-admin-page.module').then(
-      //       (module) => module.OtherskillAdminPageModule
-      //     ),
-      // },    
+      {
+        path: 'otherskill',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/otherskill/admin/otherskill-admin-page.module').then(
+            (module) => module.OtherskillAdminPageModule
+          ),
+      },    
       {
         path: 'phone',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
         loadChildren: () =>
@@ -67,13 +67,13 @@ const routes: Routes = [
       //       (module) => module.StudyAdminPageModule
       //     ),
       // },   
-      // {
-      //   path: 'proofexperience',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/proofexperience/admin/proofexperience-admin-page.module').then(
-      //       (module) => module.ProofexperienceAdminPageModule
-      //     ),
-      // }, 
+      {
+        path: 'proofexperience',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/proofexperience/admin/proofexperience-admin-page.module').then(
+            (module) => module.ProofexperienceAdminPageModule
+          ),
+      }, 
       {
         path: 'socialmedia',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
         loadChildren: () =>
@@ -81,13 +81,13 @@ const routes: Routes = [
             (module) => module.SocialmediaAdminPageModule
           ),
       },   
-      // {
-      //   path: 'messageapp',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/messageapp/admin/messageapp-admin-page.module').then(
-      //       (module) => module.MessageappAdminPageModule
-      //     ),
-      // },                                      
+      {
+        path: 'messageapp',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/messageapp/admin/messageapp-admin-page.module').then(
+            (module) => module.MessageappAdminPageModule
+          ),
+      },                                      
     ],
   },
 ];

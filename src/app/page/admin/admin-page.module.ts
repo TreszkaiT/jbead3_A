@@ -28,6 +28,15 @@ import { PhoneStoreServiceImpl } from 'src/app/module/domain/phone/store/service
 import { LanguageModule } from 'src/app/module/domain/language/language.module';
 import { LanguageStoreService } from 'src/app/api/domain/language';
 import { LanguageStoreServiceImpl } from 'src/app/module/domain/language/store/service';
+import { MessageappModule } from 'src/app/module/domain/messageapp/messageapp.module';
+import { MessageappStoreService } from 'src/app/api/domain/messageapp';
+import { MessageappStoreServiceImpl } from 'src/app/module/domain/messageapp/store/service';
+import { OtherskillModule } from 'src/app/module/domain/otherskill/otherskill.module';
+import { OtherskillStoreService } from 'src/app/api/domain/otherskill';
+import { OtherskillStoreServiceImpl } from 'src/app/module/domain/otherskill/store/service';
+import { ProofexperienceModule } from 'src/app/module/domain/proofexperience/proofexperience.module';
+import { ProofexperienceStoreService } from 'src/app/api/domain/proofexperience';
+import { ProofexperienceStoreServiceImpl } from 'src/app/module/domain/proofexperience/store/service';
 
 @NgModule({
   declarations: [AdminPageComponent, LeftSidebarComponent],
@@ -42,6 +51,9 @@ import { LanguageStoreServiceImpl } from 'src/app/module/domain/language/store/s
     PictureModule,
     PhoneModule,
     LanguageModule,
+    MessageappModule,
+    OtherskillModule,
+    ProofexperienceModule,
   ],
   // providers: [
   //   {
@@ -73,6 +85,18 @@ import { LanguageStoreServiceImpl } from 'src/app/module/domain/language/store/s
     {
       provide: LanguageStoreService,
       useClass: LanguageStoreServiceImpl
+    },
+    {
+      provide: MessageappStoreService,
+      useClass: MessageappStoreServiceImpl
+    },
+    {
+      provide: OtherskillStoreService,
+      useClass: OtherskillStoreServiceImpl
+    },
+    {
+      provide: ProofexperienceStoreService,
+      useClass: ProofexperienceStoreServiceImpl
     },
     // {
     //   provide: CityDataService,

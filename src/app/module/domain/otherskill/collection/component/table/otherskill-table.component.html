@@ -1,0 +1,31 @@
+<section class="artist-table" *ngIf="params$ | async as params">
+	<p-table [value]="params.otherskills" sortField="name" sortMode="multiple" styleClass="p-datatable-striped p-datatable-sm"
+		responsiveLayout="scroll" [paginator]="true" [rows]="10">
+		<ng-template pTemplate="header">
+			<tr>
+				<th pSortableColumn="name">
+					Name <p-sortIcon field="name"></p-sortIcon>
+				</th>
+
+				<th pSortableColumn="level">
+					Level <p-sortIcon field="level"></p-sortIcon>
+				</th>
+
+				<th></th>
+			</tr>
+		</ng-template>
+
+		<ng-template pTemplate="body" let-otherskill>
+			<tr>
+				<td>{{ otherskill.name }}</td>
+
+				<td>{{ otherskill.level }}</td>
+
+				<td>
+					<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+						(click)="editOtherskill(otherskill)"></button>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
+</section>
