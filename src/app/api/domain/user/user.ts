@@ -10,6 +10,7 @@ import { LanguageEntity } from '../language';
 import { MessageappEntity } from '../messageapp';
 import { OtherskillEntity } from '../otherskill';
 import { ProofexperienceEntity } from '../proofexperience';
+import { StudyEntity } from '../study';
 
 export const USER_FEATURE_KEY = 'user';
 
@@ -26,6 +27,7 @@ export interface UserModel {
   messageapp?: MessageappEntity;
   otherskill?: OtherskillEntity;
   proofexperience?: ProofexperienceEntity;
+  study?: StudyEntity;
 }
 
 export type UserEntity = UserModel & Identifiable;
@@ -44,6 +46,7 @@ export type UserFormParams = {
   messageapps: MessageappEntity[];
   otherskills: OtherskillEntity[];
   proofexperiences: ProofexperienceEntity[];
+  studys: StudyEntity[];
 };
 
 export type UserTableParams = {

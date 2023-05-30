@@ -22,6 +22,7 @@ import { MessageappStoreService } from '../../../../../api/domain/messageapp/mes
 import { MessageappEntity } from 'src/app/api/domain/messageapp';
 import { OtherskillEntity, OtherskillStoreService } from 'src/app/api/domain/otherskill';
 import { ProofexperienceEntity, ProofexperienceStoreService } from 'src/app/api/domain/proofexperience';
+import { StudyEntity, StudyStoreService } from 'src/app/api/domain/study';
 
 @Injectable()
 export class UserFormService {
@@ -42,6 +43,7 @@ export class UserFormService {
         private messageappStoreService: MessageappStoreService,
         private otherskillStoreService: OtherskillStoreService,
         private proofexperienceStoreService: ProofexperienceStoreService,
+        private studyStoreService: StudyStoreService,
 
         private router: Router
     ) {
@@ -67,12 +69,13 @@ export class UserFormService {
                     this.messageappStoreService.selectEntityList$(),
                     this.otherskillStoreService.selectEntityList$(),
                     this.proofexperienceStoreService.selectEntityList$(),
+                    this.studyStoreService.selectEntityList$(),
                 ])
             ),
-            switchMap(([user, cities, phones, socialmedias, pictures, languages, messageapps, otherskills, proofexperiences]) => {
+            switchMap(([user, cities, phones, socialmedias, pictures, languages, messageapps, otherskills, proofexperiences, studys]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages, messageapps, otherskills, proofexperiences);
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages, messageapps, otherskills, proofexperiences, studys);
 
                 this.params$$.next(this.params);
 
@@ -105,7 +108,7 @@ export class UserFormService {
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageapps: MessageappEntity[], otherskills: OtherskillEntity[], proofexperiences: ProofexperienceEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageapps: MessageappEntity[], otherskills: OtherskillEntity[], proofexperiences: ProofexperienceEntity[], studys: StudyEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
             formGroup,
             cities,
@@ -116,6 +119,7 @@ export class UserFormService {
             messageapps,
             otherskills,
             proofexperiences,
+            studys,
         };
 
         return userFormParams;

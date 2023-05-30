@@ -10,6 +10,7 @@ import { SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
 import { MessageappStoreService } from '../../../../api/domain/messageapp/messageapp-store.service';
 import { OtherskillStoreService } from 'src/app/api/domain/otherskill';
 import { ProofexperienceStoreService } from 'src/app/api/domain/proofexperience';
+import { StudyStoreService } from 'src/app/api/domain/study';
 
 @Injectable()
 export class AdminListsPageResolverService implements Resolve<void> {               // azért, hogy az admin oldalban a City és a User, stb. Entitások táblázatában már előre kiolvassa a listát az Angular Framework
@@ -23,6 +24,7 @@ export class AdminListsPageResolverService implements Resolve<void> {           
         private messageappStoreService: MessageappStoreService,
         private otherskillStoreService: OtherskillStoreService,
         private proofexperienceStoreService: ProofexperienceStoreService,
+        private studyStoreService: StudyStoreService,
 
         ) {}
 
@@ -37,5 +39,6 @@ export class AdminListsPageResolverService implements Resolve<void> {           
         this.messageappStoreService.dispatchListEntitiesAction();
         this.otherskillStoreService.dispatchListEntitiesAction();
         this.proofexperienceStoreService.dispatchListEntitiesAction();
+        this.studyStoreService.dispatchListEntitiesAction();
     }
 }

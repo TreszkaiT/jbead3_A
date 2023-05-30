@@ -60,13 +60,13 @@ const routes: Routes = [
             (module) => module.PictureAdminPageModule
           ),
       },     
-      // {
-      //   path: 'study',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
-      //   loadChildren: () =>
-      //     import('../../module/domain/study/admin/study-admin-page.module').then(
-      //       (module) => module.StudyAdminPageModule
-      //     ),
-      // },   
+      {
+        path: 'study',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
+        loadChildren: () =>
+          import('../../module/domain/study/admin/study-admin-page.module').then(
+            (module) => module.StudyAdminPageModule
+          ),
+      },   
       {
         path: 'proofexperience',                                                   // Lazy modon meg a city-t, ha szükség lezs rá
         loadChildren: () =>
