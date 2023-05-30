@@ -1,4 +1,5 @@
 import { ButtonModule } from 'primeng/button';
+import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { ImageModule } from 'primeng/image';
 import { InputTextModule } from 'primeng/inputtext';
@@ -29,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TableModule,
     TabViewModule,
     ToolbarModule,
+    CalendarModule,
   ],
   exports: [
     HttpClientModule,
@@ -44,6 +46,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TableModule,
     TabViewModule,
     ToolbarModule,
+    CalendarModule,
   ]
 })
 export class SharedModule { }
