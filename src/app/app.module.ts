@@ -19,6 +19,16 @@ import { SharedModule } from './module/common';
 import { ConfigModule } from './module/config/config.module';
 import { AdminPageGuard } from './page/admin/guard';
 
+// import ngx-translate and the http loader
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';   // TranslateModule - saját kezűleg adhatok hozzá fordítást  |||  TranslateLoader - letölthetek fordítást
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +53,16 @@ import { AdminPageGuard } from './page/admin/guard';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     ConfigModule,
     AuthenticationStoreModule,                                              // e nélkül nem megy a login és registration html oldala
-    AuthenticationDataModule                                                // u.a.                                                                // hogy a config globálisan be legyen töltve már az App indulásától kezdve
+    AuthenticationDataModule,                                                // u.a.                                                                // hogy a config globálisan be legyen töltve már az App indulásától kezdve
+    // ngx-translate and the loader module
+    HttpClientModule,
+    TranslateModule.forRoot({
+        loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+        }
+    })
   ],
   providers: [ 
     AdminPageGuard,
@@ -56,3 +75,8 @@ import { AdminPageGuard } from './page/admin/guard';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+// export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+//   return new TranslateHttpLoader(http);
+// }
