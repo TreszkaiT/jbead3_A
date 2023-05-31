@@ -36,7 +36,7 @@ export class UserTableService {
                     users,
                     empty: [],
                 };
-
+                // console.log(this.params.users);
                 this.params$$.next(this.params);
 
                 return this.params$$;

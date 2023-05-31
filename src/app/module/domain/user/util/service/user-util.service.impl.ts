@@ -19,7 +19,7 @@ export class UserUtilServiceImpl extends UserUtilService {
     }
 
     public createEntity(formGroup: FormGroup): UserEntityAdd {      // itt készítek új Entitást
-        const messageapps: MessageappEntity[] = formGroup.value['messageapps'] || [];                        // multiselect component miatt
+        const messageApps: MessageappEntity[] = formGroup.value['messageApps'] || [];                        // multiselect component miatt
 
         return {
             lastName: formGroup.value['lastName'],
@@ -30,11 +30,11 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: formGroup.value['socialmedia'],
             picture: formGroup.value['picture'],
             language: formGroup.value['language'],
-            messageapps: formGroup.value['messageapps'],
+            messageApps: formGroup.value['messageApps'],
             otherskill: formGroup.value['otherskill'],
             proofexperience: formGroup.value['proofexperience'],
             study: formGroup.value['study'],
-            messageappIds: messageapps.map(messageapp => messageapp.id),                                /// multiselect component miatt
+            messageAppIds: messageApps.map(messageApp => messageApp.id),                                /// multiselect component miatt
         };
     }
 
@@ -49,17 +49,15 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: [user?.socialmedia],
             picture: [user?.picture],
             language: [user?.language],
-            messageapps: [user?.messageapps],
+            messageApps: [user?.messageApps],
             otherskill: [user?.otherskill],
             proofexperience: [user?.proofexperience],
             study: [user?.study],
-            // messageapps: [user?.messageapp],
-            // selectedMessageApps: new FormControl<MessageappEntity[] | null>(null)
         });
     }
 
     public updateEntity(formGroup: FormGroup): UserEntityUpdate {       // és updatelem az Entity-t
-        const messageapps: MessageappEntity[] = formGroup.value['messageapps'] || [];                        // multiselect component miatt
+        const messageApps: MessageappEntity[] = formGroup.value['messageApps'] || [];                        // multiselect component miatt
 
         return {
             lastName: formGroup.value['lastName'],
@@ -71,11 +69,11 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: formGroup.value['socialmedia'],
             picture: formGroup.value['picture'],
             language: formGroup.value['language'],
-            messageapps: formGroup.value['messageapps'],
+            messageApps: formGroup.value['messageApps'],
             otherskill: formGroup.value['otherskill'],
             proofexperience: formGroup.value['proofexperience'],
             study: formGroup.value['study'],
-            messageappIds: messageapps.map(messageapp => messageapp.id),                                /// multiselect component miatt
+            messageAppIds: messageApps.map(messageApp => messageApp.id),                                /// multiselect component miatt
         };
     }
 }

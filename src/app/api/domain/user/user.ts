@@ -25,12 +25,12 @@ export interface UserModel {
   socialmedia?: SocialmediaEntity;  
   picture?: PictureEntity;
   language?: LanguageEntity;
-  messageapps?: MessageappEntity[] | [];
+  messageApps?: MessageappEntity[];
   otherskill?: OtherskillEntity;
   proofexperience?: ProofexperienceEntity;
   study?: StudyEntity;
   // for Multiselect components
-  messageappIds: string[];
+  messageAppIds: string[];
 }
 
 export type UserEntity = UserModel & Identifiable;
@@ -46,7 +46,7 @@ export type UserFormParams = {
   socialmedias: SocialmediaEntity[];
   pictures: PictureEntity[];
   languages: LanguageEntity[];
-  messageapps: MessageappEntity[] | []; 
+  messageApps: MessageappEntity[]; 
   otherskills: OtherskillEntity[];
   proofexperiences: ProofexperienceEntity[];
   studys: StudyEntity[];

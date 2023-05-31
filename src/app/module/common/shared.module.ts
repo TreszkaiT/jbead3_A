@@ -5,6 +5,7 @@ import { ImageModule } from 'primeng/image';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MenubarModule } from 'primeng/menubar';
+import { MultiSelectModule } from 'primeng/multiselect';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -31,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TabViewModule,
     ToolbarModule,
     CalendarModule,
+    MultiSelectModule
   ],
   exports: [
     HttpClientModule,
@@ -47,6 +49,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TabViewModule,
     ToolbarModule,
     CalendarModule,
+    MultiSelectModule
   ]
 })
 export class SharedModule { }

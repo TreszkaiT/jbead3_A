@@ -20,8 +20,8 @@
 				</th>
 
 				<th>Phone</th>
-
-				<!-- <th>Social Media</th>
+				
+				<th>Social Media</th>
 
 				<th>Picture</th>
 
@@ -33,7 +33,7 @@
 
 				<th>Proof Experience</th>
 
-				<th>Study</th> -->
+				<th>Study</th>
 
 				<th></th>
 			</tr>
@@ -57,8 +57,8 @@
 					{{ user.phone?.code }} / {{ user.phone?.pnumber }}
 				</td>
 
-				<!-- <td>
-					{{ user.socialmedia?.name }} 
+				<td>
+					{{ user.socialMedia?.name }} 
 				</td>
 
 				<td>
@@ -66,24 +66,27 @@
 				</td>
 
 				<td>
-					{{ user.language?.name }} 
+					{{ user.languages?.name }} 
+				</td>
+
+				<td > 
+					<!-- <p *ngFor="let messageapp of user.messageApps; index as i; first as isFirst">{{ messageapp.name }}, </p> -->
+					<ng-container *ngFor="let messageApp of user.messageApps; index as i; first as isFirst">
+						{{ messageApp.name }} ,
+					</ng-container>
 				</td>
 
 				<td>
-					{{ user.messageapp?.name }} 
+					{{ user.otherSkills?.name }} 
 				</td>
 
 				<td>
-					{{ user.otherskill?.name }} 
+					{{ user.proofExperiences?.nameWork }} 
 				</td>
 
 				<td>
-					{{ user.proofexperience?.nameWork }} 
+					{{ user.studies?.nameSchool }} 
 				</td>
-
-				<td>
-					{{ user.study?.nameSchool }} 
-				</td> -->
 
 				<td>
 					<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"

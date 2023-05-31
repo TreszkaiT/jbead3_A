@@ -72,11 +72,11 @@ export class UserFormService {
                     this.studyStoreService.selectEntityList$(),
                 ])
             ),
-            switchMap(([user, cities, phones, socialmedias, pictures, languages, messageapps, otherskills, proofexperiences, studys]) => {
+            switchMap(([user, cities, phones, socialmedias, pictures, languages, messageApps, otherskills, proofexperiences, studys]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages, messageapps, otherskills, proofexperiences, studys);
-
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages, messageApps, otherskills, proofexperiences, studys);
+// console.log(this.params);
                 this.params$$.next(this.params);
 
                 return this.params$$;
@@ -108,7 +108,7 @@ export class UserFormService {
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageapps: MessageappEntity[], otherskills: OtherskillEntity[], proofexperiences: ProofexperienceEntity[], studys: StudyEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageApps: MessageappEntity[], otherskills: OtherskillEntity[], proofexperiences: ProofexperienceEntity[], studys: StudyEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
             formGroup,
             cities,
@@ -116,7 +116,7 @@ export class UserFormService {
             socialmedias,
             pictures,
             languages,
-            messageapps,
+            messageApps,
             otherskills,
             proofexperiences,
             studys,
