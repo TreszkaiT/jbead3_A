@@ -2,7 +2,7 @@
 	<form [formGroup]="params.formGroup">
 		<h4>Login</h4>
 
-		<div class="mb-3">
+		<!-- <div class="mb-3">
 			<label class="form-label">Email</label>
 
 			<input type="text" formControlName="email" class="form-control" />
@@ -12,14 +12,34 @@
 			<label class="form-label">Password</label>
 
 			<input type="password" formControlName="password" class="form-control" />
+		</div> -->
+
+
+		<div class="field">
+			<span class="p-float-label">
+				<input id="email" type="text" pInputText formControlName="email" class="p-inputtext-lg form-control" />
+
+				<label for="email">Email</label>
+			</span>
+			<small id="email-help">Enter your username.</small>
 		</div>
 
-		<div style="margin-top: 10px" class="button-bar">
+		<div class="field">
+			<span class="p-float-label">
+				<input id="password" type="password" pInputText formControlName="password" class="form-control" />
+
+				<label for="password">Password</label>
+			</span>
+			<small id="password-help">Enter your password.</small>
+		</div>
+
+		<div class="field">
 			<button type="button" class="btn btn-primary" (click)="submit()"
 				[disabled]="!params.formGroup.valid">
 				Submit</button>
 
 			<a [routerLink]="['../registration']">Register</a>
 		</div>
+
 	</form>
 </section>
