@@ -11,13 +11,17 @@
 					Last name <p-sortIcon field="lastName"></p-sortIcon>
 				</th>
 
-				<th>Email</th>
+				<th pSortableColumn="email">
+					Email <p-sortIcon field="email"></p-sortIcon>
+				</th>
 
-				<th>City</th>
+				<th pSortableColumn="city">
+					City <p-sortIcon field="city"></p-sortIcon>
+				</th>
 
 				<th>Phone</th>
 
-				<th>Social Media</th>
+				<!-- <th>Social Media</th>
 
 				<th>Picture</th>
 
@@ -29,7 +33,7 @@
 
 				<th>Proof Experience</th>
 
-				<th>Study</th>
+				<th>Study</th> -->
 
 				<th></th>
 			</tr>
@@ -50,10 +54,10 @@
 				</td>
 
 				<td>
-					{{ user.phone?.code }} {{ user.phone?.pnumber }}
+					{{ user.phone?.code }} / {{ user.phone?.pnumber }}
 				</td>
 
-				<td>
+				<!-- <td>
 					{{ user.socialmedia?.name }} 
 				</td>
 
@@ -79,7 +83,7 @@
 
 				<td>
 					{{ user.study?.nameSchool }} 
-				</td>
+				</td> -->
 
 				<td>
 					<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"

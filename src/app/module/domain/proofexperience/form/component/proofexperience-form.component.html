@@ -12,7 +12,11 @@
 
 		<div class="field">
 			<span class="p-float-label">
-				<input id="from" type="text" pInputText formControlName="from" />
+				<p-calendar id="from" formControlName="from" [showIcon]="true" [showButtonBar]="true">
+					<ng-template pTemplate="date" let-date>
+						<span [ngStyle]="{textDecoration: (date.day < 21 && date.day > 10) ? 'line-through' : 'inherit'}">{{date.day}}</span>
+					</ng-template>
+				</p-calendar>
 
 				<label for="from">From</label>
 			</span>
@@ -20,7 +24,10 @@
 
 		<div class="field">
 			<span class="p-float-label">
-				<input id="to" type="text" pInputText formControlName="to" />
+				<p-calendar id="to" formControlName="to" [showIcon]="true" [showButtonBar]="true" [readonlyInput]="true">
+					<ng-template pTemplate="header">Fejléc</ng-template>
+    				<ng-template pTemplate="footer">Lábléc</ng-template>
+				</p-calendar>
 
 				<label for="to">To</label>
 			</span>
@@ -28,11 +35,13 @@
 
 		<div class="field">
 			<span class="p-float-label">
-				<input id="comment" type="text" pInputText formControlName="comment" />
+				<!-- <input id="comment" type="text" pInputText formControlName="comment" /> -->
+				<textarea id="comment" rows="5" cols="30" pInputTextarea formControlName="comment"></textarea>
 
 				<label for="comment">Comment</label>
 			</span>
 		</div>
+
 
 		<div style="margin-top: 10px" fxLayout="row" fxLayoutAlign="space-around">
 			<button pButton type="button" label="Submit" (click)="submit()"

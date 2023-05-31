@@ -1,12 +1,14 @@
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
-
-import { Component, Inject, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Title } from '@angular/platform-browser';
-import { ConfigService } from './core/config';
-import { DOCUMENT } from '@angular/common';
-import { ConfigEntity, ConfigStoreService } from './api/config';
 import { Observable, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+
+import { ConfigEntity, ConfigStoreService } from './api/config';
+import { ConfigService } from './core/config';
 
 @Component({
   selector: 'app-root',
@@ -24,12 +26,25 @@ export class AppComponent implements OnInit {
   constructor(
     private _title: Title,
     private config: ConfigService,
-    private configStoreService: ConfigStoreService,                   // config csere miatt
-    @Inject(DOCUMENT) private document: Document,                      // configot így tudja beírni lent a HTML-be
+    private configStoreService: ConfigStoreService,                     // config csere miatt
+    @Inject(DOCUMENT) private document: Document,                       // configot így tudja beírni lent a HTML-be
     private primengConfig: PrimeNGConfig,
+    private translateService: TranslateService,                         //  i18n translate for components
     ){
     // this._title.setTitle(this.title);
-    this._title.setTitle(this.config.get('appTitle') as string);
+    this._title.setTitle(this.config.get('appTitle') as string);    
+
+    this.primengConfig.setTranslation({
+        accept: 'Accept',
+        reject: 'Cancel',
+        //translations
+    });
+
+    this.translateService.addLangs(['en', 'hu']);
+    this.translateService.setDefaultLang('hu');                             // Set default translate language 
+    this.translateService.use('hu');
+
+    this.translate('hu')
   }
 
   public ngOnInit(): void {
@@ -38,6 +53,7 @@ export class AppComponent implements OnInit {
     
     this.primengConfig.ripple = true;                                       // Ripple animation in button (középröl kör irányba mint egy vízbe dobott kő fehér glória mozog kifelé)
 
+    
     this.items = [
       {
         label: 'Home',
@@ -194,5 +210,10 @@ export class AppComponent implements OnInit {
         themeLink.href = theme + '.css';
     }
   }
+
+  translate(lang: string) {
+    this.translateService.use(lang);
+    this.translateService.get('primeng').subscribe(res => this.primengConfig.setTranslation(res));
+    }
 
 }
