@@ -30,7 +30,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: formGroup.value['socialmedia'],
             picture: formGroup.value['picture'],
             language: formGroup.value['language'],
-            messageapp: formGroup.value['messageapp'],
+            messageapps: formGroup.value['messageapps'],
             otherskill: formGroup.value['otherskill'],
             proofexperience: formGroup.value['proofexperience'],
             study: formGroup.value['study'],
@@ -49,10 +49,11 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: [user?.socialmedia],
             picture: [user?.picture],
             language: [user?.language],
-            messageapp: [user?.messageapp],
+            messageapps: [user?.messageapps],
             otherskill: [user?.otherskill],
             proofexperience: [user?.proofexperience],
             study: [user?.study],
+            // messageapps: [user?.messageapp],
             // selectedMessageApps: new FormControl<MessageappEntity[] | null>(null)
         });
     }
@@ -70,7 +71,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             socialmedia: formGroup.value['socialmedia'],
             picture: formGroup.value['picture'],
             language: formGroup.value['language'],
-            messageapp: formGroup.value['messageapp'],
+            messageapps: formGroup.value['messageapps'],
             otherskill: formGroup.value['otherskill'],
             proofexperience: formGroup.value['proofexperience'],
             study: formGroup.value['study'],
