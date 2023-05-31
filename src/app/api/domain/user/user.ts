@@ -28,9 +28,10 @@ export interface UserModel {
   messageApps?: MessageappEntity[];
   otherskill?: OtherskillEntity;
   proofexperience?: ProofexperienceEntity;
-  study?: StudyEntity;
+  studies?: StudyEntity[];
   // for Multiselect components
   messageAppIds: string[];
+  studyIds: string[];
 }
 
 export type UserEntity = UserModel & Identifiable;
@@ -49,7 +50,7 @@ export type UserFormParams = {
   messageApps: MessageappEntity[]; 
   otherskills: OtherskillEntity[];
   proofexperiences: ProofexperienceEntity[];
-  studys: StudyEntity[];
+  studies: StudyEntity[];
 };
 
 export type UserTableParams = {

@@ -85,7 +85,10 @@
 				</td>
 
 				<td>
-					{{ user.study?.nameSchool }} 
+					<!-- {{ user.studies?.nameSchool }}  -->
+					<ng-container *ngFor="let study of user.studies; index as i; first as isFirst">
+						{{ study.nameSchool }} ,
+					</ng-container>
 				</td>
 
 				<td>

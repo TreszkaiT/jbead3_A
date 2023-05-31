@@ -8,6 +8,7 @@ import {
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessageappEntity } from 'src/app/api/domain/messageapp';
+import { StudyEntity } from 'src/app/api/domain/study';
 
 @Injectable()
 export class UserUtilServiceImpl extends UserUtilService {
@@ -20,6 +21,7 @@ export class UserUtilServiceImpl extends UserUtilService {
 
     public createEntity(formGroup: FormGroup): UserEntityAdd {      // itt készítek új Entitást
         const messageApps: MessageappEntity[] = formGroup.value['messageApps'] || [];                        // multiselect component miatt
+        const studies: StudyEntity[] = formGroup.value['study'] || []; 
 
         return {
             lastName: formGroup.value['lastName'],
@@ -33,8 +35,9 @@ export class UserUtilServiceImpl extends UserUtilService {
             messageApps: formGroup.value['messageApps'],
             otherskill: formGroup.value['otherskill'],
             proofexperience: formGroup.value['proofexperience'],
-            study: formGroup.value['study'],
+            studies: formGroup.value['studies'],
             messageAppIds: messageApps.map(messageApp => messageApp.id),                                /// multiselect component miatt
+            studyIds: studies.map(study => study.id),
         };
     }
 
@@ -52,12 +55,13 @@ export class UserUtilServiceImpl extends UserUtilService {
             messageApps: [user?.messageApps],
             otherskill: [user?.otherskill],
             proofexperience: [user?.proofexperience],
-            study: [user?.study],
+            studies: [user?.studies],
         });
     }
 
     public updateEntity(formGroup: FormGroup): UserEntityUpdate {       // és updatelem az Entity-t
         const messageApps: MessageappEntity[] = formGroup.value['messageApps'] || [];                        // multiselect component miatt
+        const studies: StudyEntity[] = formGroup.value['study'] || []; 
 
         return {
             lastName: formGroup.value['lastName'],
@@ -72,8 +76,9 @@ export class UserUtilServiceImpl extends UserUtilService {
             messageApps: formGroup.value['messageApps'],
             otherskill: formGroup.value['otherskill'],
             proofexperience: formGroup.value['proofexperience'],
-            study: formGroup.value['study'],
+            studies: formGroup.value['studies'],
             messageAppIds: messageApps.map(messageApp => messageApp.id),                                /// multiselect component miatt
+            studyIds: studies.map(study => study.id),
         };
     }
 }
