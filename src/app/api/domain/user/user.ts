@@ -20,7 +20,7 @@ export interface UserModel {
   firstName?: string;
   lastName?: string;
   // other Entities
-  city?: CityEntity;
+  city?: CityEntity[];
   phones?: PhoneEntity[];
   socialmedia?: SocialmediaEntity;  
   picture?: PictureEntity[];
