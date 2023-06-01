@@ -22,7 +22,7 @@ export interface UserModel {
   // other Entities
   city?: CityEntity[];
   phones?: PhoneEntity[];
-  socialmedia?: SocialmediaEntity;  
+  socialMedias?: SocialmediaEntity[];
   picture?: PictureEntity[];
   language?: LanguageEntity;
   messageApps?: MessageappEntity[];
@@ -45,7 +45,7 @@ export type UserFormParams = {
   formGroup: FormGroup;
   cities: CityEntity[];                                                   // user-hez egy city hozzáadása
   phones: PhoneEntity[];
-  socialmedias: SocialmediaEntity[];
+  socialMedias: SocialmediaEntity[];
   pictures: PictureEntity[];
   languages: LanguageEntity[];
   messageApps: MessageappEntity[]; 

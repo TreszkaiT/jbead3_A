@@ -72,10 +72,10 @@ export class UserFormService {
                     this.studyStoreService.selectEntityList$(),
                 ])
             ),
-            switchMap(([user, cities, phones, socialmedias, pictures, languages, messageApps, otherskills, proofexperiences, studies]) => {
+            switchMap(([user, cities, phones, socialMedias, pictures, languages, messageApps, otherskills, proofexperiences, studies]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities, phones, socialmedias, pictures, languages, messageApps, otherskills, proofexperiences, studies);
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialMedias, pictures, languages, messageApps, otherskills, proofexperiences, studies);
 // console.log(this.params);
                 this.params$$.next(this.params);
 
@@ -108,12 +108,12 @@ export class UserFormService {
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialmedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageApps: MessageappEntity[], otherskills: OtherskillEntity[], proofexperiences: ProofexperienceEntity[], studies: StudyEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialMedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageApps: MessageappEntity[], otherskills: OtherskillEntity[], proofexperiences: ProofexperienceEntity[], studies: StudyEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
             formGroup,
             cities,
             phones,
-            socialmedias,
+            socialMedias,
             pictures,
             languages,
             messageApps,

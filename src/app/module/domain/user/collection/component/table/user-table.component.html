@@ -60,7 +60,9 @@
 				</td>
 
 				<td>
-					{{ user.socialMedia?.name }} 
+					<ng-container *ngFor="let socialMedia of user.socialMedias; index as i; first as isFirst">
+						{{ socialMedia.name }} ,
+					</ng-container>
 				</td>
 
 				<td>
