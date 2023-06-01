@@ -6,8 +6,8 @@ export const STUDY_FEATURE_KEY = 'study';
 
 export interface StudyModel {
   nameSchool: string;
-  from: string;
-  to: string;
+  from: string;             // Moment
+  to: string;               // Moment
   comment: string;
   level: number;
 }

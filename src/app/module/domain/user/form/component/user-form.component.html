@@ -54,10 +54,11 @@
 					formControlName="phones"
 				>
 					<ng-template let-phone pTemplate="selectedItem">
-						<div style="display: flex; align-items: stretch;"  >
+						<!-- <div style="display: flex; align-items: stretch;"  > -->
+							<div style="display: flex; flex-wrap: wrap; row-gap: 5px; column-gap: .2em;"  >		<!--- .2em = 5px-->
 							<ng-container>
-								<div>{{ phone.code }}</div>
-								<div>/</div>
+								<div>{{ phone.code }}</div>							<!-- <div style="width: 20px">{{ phone.code }}</div> -->
+								<div>/</div>										<!-- <div style="width: 10px">/</div> -->
 								<div>{{ phone.pnumber }}</div>
 							</ng-container>
 						</div>
@@ -72,7 +73,7 @@
 				<label for="phones">Phone</label>
 			</span>
 		</div> 
-
+				
 		<div class="field">
 			<span class="p-float-label">
 				<p-multiSelect
