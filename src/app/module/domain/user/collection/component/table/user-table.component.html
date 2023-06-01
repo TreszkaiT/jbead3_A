@@ -55,13 +55,13 @@
 
 				<td>
 					<ng-container *ngFor="let phone of user.phones; index as i; first as isFirst">					
-						{{ phone?.code }} / {{ phone?.pnumber }} ,
+						<span *ngIf="i != 0">,</span> {{ phone?.code }} / {{ phone?.pnumber }}
 					</ng-container>
 				</td>
 
 				<td>
 					<ng-container *ngFor="let socialMedia of user.socialMedias; index as i; first as isFirst">
-						{{ socialMedia.name }} ,
+						<span *ngIf="i != 0">,</span> {{ socialMedia.name }}
 					</ng-container>
 				</td>
 
@@ -71,33 +71,33 @@
 
 				<td>
 					<ng-container *ngFor="let language of user.languages; index as i; first as isFirst">
-						{{ language.name }} ,
+						<span *ngIf="i != 0">,</span> {{ language.name }}
 					</ng-container>
 				</td>
 
 				<td > 
 					<!-- <p *ngFor="let messageapp of user.messageApps; index as i; first as isFirst">{{ messageapp.name }}, </p> -->
 					<ng-container *ngFor="let messageApp of user.messageApps; index as i; first as isFirst">
-						{{ messageApp.name }} ,
+						<span *ngIf="i != 0">,</span> {{ messageApp.name }}
 					</ng-container>
 				</td>
 
 				<td>
 					<ng-container *ngFor="let otherSkill of user.otherSkills; index as i; first as isFirst">
-						{{ otherSkill.name }} ,
+						<span *ngIf="i != 0">,</span> {{ otherSkill.name }}
 					</ng-container>
 				</td>
 
 				<td>
 					<ng-container *ngFor="let proofExperience of user.proofExperiences; index as i; first as isFirst">
-						{{ proofExperience.nameWork }} ,
+						<span *ngIf="i != 0">,</span> {{ proofExperience.nameWork }}
 					</ng-container>
 				</td>
 
 				<td>
 					<!-- {{ user.studies?.nameSchool }}  -->
 					<ng-container *ngFor="let study of user.studies; index as i; first as isFirst">
-						{{ study.nameSchool }} ,
+						<span *ngIf="i != 0">,</span> {{ study.nameSchool }}
 					</ng-container>
 				</td>
 
