@@ -87,7 +87,9 @@
 				</td>
 
 				<td>
-					{{ user.proofexperience?.nameWork }} 
+					<ng-container *ngFor="let proofExperience of user.proofExperiences; index as i; first as isFirst">
+						{{ proofExperience.nameWork }} ,
+					</ng-container>
 				</td>
 
 				<td>

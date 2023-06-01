@@ -147,15 +147,16 @@
 
 		<div class="field">
 			<span class="p-float-label">
-				<p-dropdown
-					id="proofexperience"
+				<p-multiSelect
+					id="proofExperiences"
 					optionLabel="nameWork"				
-					[options]="params.proofexperiences"
+					[options]="params.proofExperiences"
 					placeholder="Select a proof experience"
-					formControlName="proofexperience"
-				></p-dropdown>
+					formControlName="proofExperiences"
+					display="chip"
+				></p-multiSelect>
 
-				<label for="proofexperience">Proof Experience</label>
+				<label for="proofExperiences">Proof Experience</label>
 			</span>
 		</div> 
 

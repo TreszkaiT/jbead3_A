@@ -72,10 +72,10 @@ export class UserFormService {
                     this.studyStoreService.selectEntityList$(),
                 ])
             ),
-            switchMap(([user, cities, phones, socialMedias, pictures, languages, messageApps, otherSkills, proofexperiences, studies]) => {
+            switchMap(([user, cities, phones, socialMedias, pictures, languages, messageApps, otherSkills, proofExperiences, studies]) => {
                 this.user = user;
                 this.formGroup = this.userUtilService.createFormGroup(user);
-                this.params = this.createUserParams(this.formGroup, cities, phones, socialMedias, pictures, languages, messageApps, otherSkills, proofexperiences, studies);
+                this.params = this.createUserParams(this.formGroup, cities, phones, socialMedias, pictures, languages, messageApps, otherSkills, proofExperiences, studies);
 // console.log(this.params);
                 this.params$$.next(this.params);
 
@@ -108,7 +108,7 @@ export class UserFormService {
         this.userStoreService.dispatchAddEntityAction(user);
     }
 
-    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialMedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageApps: MessageappEntity[], otherSkills: OtherskillEntity[], proofexperiences: ProofexperienceEntity[], studies: StudyEntity[]): UserFormParams {
+    private createUserParams(formGroup: FormGroup, cities: CityEntity[], phones: PhoneEntity[], socialMedias: SocialmediaEntity[], pictures: PictureEntity[], languages: LanguageEntity[], messageApps: MessageappEntity[], otherSkills: OtherskillEntity[], proofExperiences: ProofexperienceEntity[], studies: StudyEntity[]): UserFormParams {
         const userFormParams: UserFormParams = {
             formGroup,
             cities,
@@ -118,7 +118,7 @@ export class UserFormService {
             languages,
             messageApps,
             otherSkills,
-            proofexperiences,
+            proofExperiences,
             studies,
         };
 

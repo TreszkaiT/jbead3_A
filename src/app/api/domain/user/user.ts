@@ -27,7 +27,7 @@ export interface UserModel {
   language?: LanguageEntity;
   messageApps?: MessageappEntity[];
   otherSkills?: OtherskillEntity[];
-  proofexperience?: ProofexperienceEntity;
+  proofExperiences?: ProofexperienceEntity[];
   studies?: StudyEntity[];
   // for Multiselect components
   messageAppIds: string[];
@@ -50,7 +50,7 @@ export type UserFormParams = {
   languages: LanguageEntity[];
   messageApps: MessageappEntity[]; 
   otherSkills: OtherskillEntity[];
-  proofexperiences: ProofexperienceEntity[];
+  proofExperiences: ProofexperienceEntity[];
   studies: StudyEntity[];
 };
 

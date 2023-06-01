@@ -37,7 +37,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             language: formGroup.value['language'],
             messageApps: formGroup.value['messageApps'],
             otherSkills: formGroup.value['otherSkills'],
-            proofexperience: formGroup.value['proofexperience'],
+            proofExperiences: formGroup.value['proofExperiences'],
             studies: formGroup.value['studies'],
             messageAppIds: messageApps.map(messageApp => messageApp.id),                                /// multiselect component miatt
             studyIds: studies.map(study => study.id),
@@ -58,7 +58,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             language: [user?.language],
             messageApps: [user?.messageApps],
             otherSkills: [user?.otherSkills],
-            proofexperience: [user?.proofexperience],
+            proofExperiences: [user?.proofExperiences],
             studies: [user?.studies],
         });
     }
@@ -87,7 +87,7 @@ export class UserUtilServiceImpl extends UserUtilService {
             language: formGroup.value['language'],
             messageApps: formGroup.value['messageApps'],
             otherSkills: formGroup.value['otherSkills'],
-            proofexperience: formGroup.value['proofexperience'],
+            proofExperiences: formGroup.value['proofExperiences'],
             studies: formGroup.value['studies'],
             messageAppIds: messageApps.map(messageApp => messageApp.id),                                /// multiselect component miatt
             studyIds: studies.map(study => study.id),
