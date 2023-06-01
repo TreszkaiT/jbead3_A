@@ -47,14 +47,29 @@
 		<div class="field">
 			<span class="p-float-label">
 				<p-dropdown
-					id="phone"
+					id="phones"
 					optionLabel="pnumber"				
 					[options]="params.phones"
 					placeholder="Select a phone"
-					formControlName="phone"
-				></p-dropdown>
+					formControlName="phones"
+				>
+					<!-- <ng-template let-phone pTemplate="selectedItem">
+						<div style="display: flex; align-items: stretch;"  >
+							<ng-container>
+								<div>{{ phone.code }}</div>
+								<div>/</div>
+								<div>{{ phone.pnumber }}</div>
+							</ng-container>
+						</div>
+					</ng-template>
+					<ng-template let-phone pTemplate="item">
+						<div>
+							<div>{{ phone.code }} / {{ phone.pnumber }}</div>
+						</div>
+					</ng-template> -->
+				</p-dropdown>
 
-				<label for="phone">Phone</label>
+				<label for="phones">Phone</label>
 			</span>
 		</div> 
 
