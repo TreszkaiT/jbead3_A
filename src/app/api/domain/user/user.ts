@@ -21,7 +21,7 @@ export interface UserModel {
   lastName?: string;
   // other Entities
   city?: CityEntity;
-  phone?: PhoneEntity;
+  phones?: PhoneEntity[];
   socialmedia?: SocialmediaEntity;  
   picture?: PictureEntity;
   language?: LanguageEntity;
@@ -32,6 +32,7 @@ export interface UserModel {
   // for Multiselect components
   messageAppIds: string[];
   studyIds: string[];
+  phoneIds: string[];
 }
 
 export type UserEntity = UserModel & Identifiable;

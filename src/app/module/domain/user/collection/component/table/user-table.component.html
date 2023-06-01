@@ -54,7 +54,9 @@
 				</td>
 
 				<td>
-					{{ user.phone?.code }} / {{ user.phone?.pnumber }}
+					<ng-container *ngFor="let phone of user.phones; index as i; first as isFirst">					
+						{{ phone?.code }} / {{ phone?.pnumber }} ,
+					</ng-container>
 				</td>
 
 				<td>
