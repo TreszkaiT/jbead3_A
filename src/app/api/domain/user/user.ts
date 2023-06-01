@@ -26,7 +26,7 @@ export interface UserModel {
   picture?: PictureEntity[];
   language?: LanguageEntity;
   messageApps?: MessageappEntity[];
-  otherskill?: OtherskillEntity;
+  otherSkills?: OtherskillEntity[];
   proofexperience?: ProofexperienceEntity;
   studies?: StudyEntity[];
   // for Multiselect components
@@ -49,7 +49,7 @@ export type UserFormParams = {
   pictures: PictureEntity[];
   languages: LanguageEntity[];
   messageApps: MessageappEntity[]; 
-  otherskills: OtherskillEntity[];
+  otherSkills: OtherskillEntity[];
   proofexperiences: ProofexperienceEntity[];
   studies: StudyEntity[];
 };

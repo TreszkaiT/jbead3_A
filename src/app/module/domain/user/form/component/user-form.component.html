@@ -132,15 +132,16 @@
 
 		<div class="field">
 			<span class="p-float-label">
-				<p-dropdown
-					id="otherskill"
+				<p-multiSelect
+					id="otherSkills"
 					optionLabel="name"				
-					[options]="params.otherskills"
-					placeholder="Select a otherskill"
-					formControlName="otherskill"
-				></p-dropdown>
+					[options]="params.otherSkills"
+					placeholder="Select a otherSkills"
+					formControlName="otherSkills"
+					display="chip"                
+				></p-multiSelect>
 
-				<label for="otherskill">Other Skill</label>
+				<label for="otherSkills">Other Skill</label>
 			</span>
 		</div> 
 

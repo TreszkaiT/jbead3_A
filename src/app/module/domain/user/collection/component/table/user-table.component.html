@@ -81,7 +81,9 @@
 				</td>
 
 				<td>
-					{{ user.otherskill?.name }} 
+					<ng-container *ngFor="let otherSkill of user.otherSkills; index as i; first as isFirst">
+						{{ otherSkill.name }} ,
+					</ng-container>
 				</td>
 
 				<td>
