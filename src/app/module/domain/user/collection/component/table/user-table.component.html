@@ -70,7 +70,9 @@
 				</td>
 
 				<td>
-					{{ user.language?.name }} 
+					<ng-container *ngFor="let language of user.languages; index as i; first as isFirst">
+						{{ language.name }} ,
+					</ng-container>
 				</td>
 
 				<td > 

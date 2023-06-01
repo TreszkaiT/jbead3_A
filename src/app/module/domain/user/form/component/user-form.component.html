@@ -104,15 +104,16 @@
 
 		<div class="field">
 			<span class="p-float-label">
-				<p-dropdown
-					id="language"
+				<p-multiSelect
+					id="languages"
 					optionLabel="name"				
 					[options]="params.languages"
-					placeholder="Select a language"
-					formControlName="language"
-				></p-dropdown>
+					placeholder="Select a languages"
+					formControlName="languages"
+					display="chip"                
+				></p-multiSelect>
 
-				<label for="language">Language</label>
+				<label for="languages">Language</label>
 			</span>
 		</div> 
 

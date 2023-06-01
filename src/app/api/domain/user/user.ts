@@ -24,7 +24,7 @@ export interface UserModel {
   phones?: PhoneEntity[];
   socialMedias?: SocialmediaEntity[];
   picture?: PictureEntity[];
-  language?: LanguageEntity;
+  languages?: LanguageEntity[];
   messageApps?: MessageappEntity[];
   otherSkills?: OtherskillEntity[];
   proofExperiences?: ProofexperienceEntity[];

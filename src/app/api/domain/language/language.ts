@@ -1,12 +1,14 @@
 import { FormGroup } from '@angular/forms';
 
 import { Identifiable } from '../../identifiable';
+import { UserEntity } from '../user';
 
 export const LANGUAGE_FEATURE_KEY = 'language';
 
 export interface LanguageModel {
   name: string;
   code: string;
+  personList?: UserEntity[];
 }
 
 export type LanguageEntity = LanguageModel & Identifiable;
