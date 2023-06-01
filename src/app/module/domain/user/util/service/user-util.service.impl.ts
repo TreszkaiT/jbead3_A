@@ -10,6 +10,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MessageappEntity } from 'src/app/api/domain/messageapp';
 import { StudyEntity } from 'src/app/api/domain/study';
 import { PhoneEntity } from 'src/app/api/domain/phone';
+import { PictureEntity } from 'src/app/api/domain/picture';
 
 @Injectable()
 export class UserUtilServiceImpl extends UserUtilService {
@@ -68,10 +69,12 @@ export class UserUtilServiceImpl extends UserUtilService {
         const phones: PhoneEntity[] = formGroup.value['phones'] || [];                              
         let phonesArray: PhoneEntity[]                                                              // hiba: így csak 1 objektumot kapok, mert a HTLM p-dropdown-ban csak egy Obj-ot tudok kiválasztani, és így a kapott output nem egy JSON Arrray lesz [{…}], hanem csak egy sima Objektum: {id: 1, code: 30, pnumber: 1234567}
         phonesArray = [formGroup.value['phones']];                                                  // így itt létrehozok egy Arrayt, és beletszem az objektumot, hogy ezt kapjam: [{…}]  és a backend így már fel tudja dolgozni, mert ő JSON Arrray-t vár: [{…}]
+        // let pictureArray: PictureEntity[] = [formGroup.value['picture']];                           // ugyanaz a gond, mint fentebb: Obj --> Array_Obj-ot kell készíteni                  
 // console.log(phones)
 // console.log(phonesArray)
 // console.log(messageApps)
 // console.log(studies)
+// console.log(pictureArray)
         return {
             lastName: formGroup.value['lastName'],
             email: formGroup.value['email'],

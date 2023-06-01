@@ -23,7 +23,7 @@ export interface UserModel {
   city?: CityEntity;
   phones?: PhoneEntity[];
   socialmedia?: SocialmediaEntity;  
-  picture?: PictureEntity;
+  picture?: PictureEntity[];
   language?: LanguageEntity;
   messageApps?: MessageappEntity[];
   otherskill?: OtherskillEntity;
