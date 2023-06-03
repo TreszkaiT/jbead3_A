@@ -27,6 +27,11 @@ export class CityTableService {
         });
     }
 
+    public deleteCity(city: CityEntity): void {
+        this.cityStoreService.dispatchDeleteEntityAction(city.id);
+        //this.init$
+    }
+
     public init$(): Observable<CityTableParams> {
         
         // this.cityStoreService.dispatchListEntitiesAction();

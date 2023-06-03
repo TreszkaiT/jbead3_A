@@ -66,7 +66,16 @@ const cityReducer = createReducer(
     on(cityActions.updateCitySuccess, (state, { city }) =>
         cityAdapter.updateOne(city, state)
     ),
-    on(cityActions.updateCityFail, (state, { error }) => ({ ...state, error }))
+    on(cityActions.updateCityFail, (state, { error }) => ({ ...state, error })),
+    on(cityActions.deleteCity, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(cityActions.deleteCitySuccess, (state, { id }) =>
+            cityAdapter.removeOne(id, state)
+        ),
+    on(cityActions.deleteCityFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: CityState | undefined, action: Action) {

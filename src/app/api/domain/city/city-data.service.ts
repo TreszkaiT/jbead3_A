@@ -8,5 +8,5 @@ export abstract class CityDataService {                                         
     public abstract list$(): Observable<CityEntity[]>;
     public abstract update$(entity: CityEntityUpdate): Observable<CityEntityUpdate>;     
     public abstract patch$(entity: CityEntityUpdate): Observable<CityEntityUpdate>;     // speci. update, akár 1 property-t is elég átadni ekkor 
-    //public abstract delete$(cityId: number): Observable<
+    public abstract delete$(cityId: string): Observable<boolean>;
 }
