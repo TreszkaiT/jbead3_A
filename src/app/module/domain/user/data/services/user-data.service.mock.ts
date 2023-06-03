@@ -11,6 +11,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UserDataServiceMock extends UserDataService {
+    public patch$(entity: UserEntityUpdate): Observable<UserEntityUpdate> {
+        throw new Error('Method not implemented.');
+    }
     public delete$(entityId: string): Observable<boolean> {
         throw new Error('Method not implemented.');
     }
