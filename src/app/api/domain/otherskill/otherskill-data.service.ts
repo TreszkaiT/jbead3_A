@@ -8,4 +8,5 @@ export abstract class OtherskillDataService {
     public abstract list$(): Observable<OtherskillEntity[]>;
     public abstract update$(entity: OtherskillEntityUpdate): Observable<OtherskillEntityUpdate>;
     public abstract patch$(entity: OtherskillEntityUpdate): Observable<OtherskillEntityUpdate>; 
+    public abstract delete$(entityId: string): Observable<boolean>;
 }

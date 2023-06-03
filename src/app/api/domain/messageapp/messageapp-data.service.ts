@@ -8,4 +8,5 @@ export abstract class MessageappDataService {
     public abstract list$(): Observable<MessageappEntity[]>;
     public abstract update$(entity: MessageappEntityUpdate): Observable<MessageappEntityUpdate>;
     public abstract patch$(entity: MessageappEntityUpdate): Observable<MessageappEntityUpdate>; 
+    public abstract delete$(entityId: string): Observable<boolean>;
 }

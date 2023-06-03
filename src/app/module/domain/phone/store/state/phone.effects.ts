@@ -79,6 +79,24 @@ export class PhoneEffects {
         )
     );
 
+    deletePhone$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(phoneActions.deletePhone),
+            switchMap((action) =>
+                this.phoneDataService.delete$(action.id).pipe(
+                    map((phone) => {
+                        return phoneActions.deletePhoneSuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(phoneActions.deletePhoneFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private phoneDataService: PhoneDataService

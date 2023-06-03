@@ -61,3 +61,18 @@ export const updateOtherskillSuccess = createAction(
     '[Otherskill Admin] Update Otherskill Success',
     props<{ otherskill: Update<OtherskillEntityUpdate> }>()
 );
+
+export const deleteOtherskill = createAction(
+    '[Otherskill Admin] Delete Otherskill',
+    props<{ id: string }>()
+);
+
+export const deleteOtherskillFail = createAction(
+    '[Otherskill Admin] Delete Otherskill Fail',
+    props<{ error: string }>()
+);
+
+export const deleteOtherskillSuccess = createAction(
+    '[Otherskill Admin] Delete Otherskill Success',
+    props<{ id: string }>()
+);

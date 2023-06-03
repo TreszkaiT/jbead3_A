@@ -27,6 +27,10 @@ export class MessageappTableService {
         });
     }
 
+    public deleteMessageapp(messageapp: MessageappEntity): void {
+        this.messageappStoreService.dispatchDeleteEntityAction(messageapp.id);
+    }
+
     public init$(): Observable<MessageappTableParams> {
         
         // this.messageappStoreService.dispatchListEntitiesAction();

@@ -27,6 +27,10 @@ export class UserTableService {
         });
     }
 
+    public deleteUser(user: UserEntity): void {
+        this.userStoreService.dispatchDeleteEntityAction(user.id);
+    }
+
     public init$(): Observable<UserTableParams> {
         return merge(
             this.userStoreService.selectEntityList$().pipe(first())

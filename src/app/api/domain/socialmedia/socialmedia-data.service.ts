@@ -8,4 +8,5 @@ export abstract class SocialmediaDataService {
     public abstract list$(): Observable<SocialmediaEntity[]>;
     public abstract update$(entity: SocialmediaEntityUpdate): Observable<SocialmediaEntityUpdate>;
     public abstract patch$(entity: SocialmediaEntityUpdate): Observable<SocialmediaEntityUpdate>; 
+    public abstract delete$(entityId: string): Observable<boolean>;
 }

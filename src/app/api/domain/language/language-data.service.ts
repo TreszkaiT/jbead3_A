@@ -8,4 +8,5 @@ export abstract class LanguageDataService {
     public abstract list$(): Observable<LanguageEntity[]>;
     public abstract update$(entity: LanguageEntityUpdate): Observable<LanguageEntityUpdate>;
     public abstract patch$(entity: LanguageEntityUpdate): Observable<LanguageEntityUpdate>; 
+    public abstract delete$(entityId: string): Observable<boolean>;
 }

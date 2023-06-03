@@ -22,6 +22,10 @@ export class MessageappTableComponent implements OnInit {
 		this.componentService.editMessageapp(messageapp);
 	}
 
+	public deleteMessageapp(messageapp: MessageappEntity): void {
+		this.componentService.deleteMessageapp(messageapp);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

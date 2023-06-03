@@ -27,6 +27,10 @@ export class LanguageTableService {
         });
     }
 
+    public deleteLanguage(language: LanguageEntity): void {
+        this.languageStoreService.dispatchDeleteEntityAction(language.id);
+    }
+
     public init$(): Observable<LanguageTableParams> {
         
         // this.languageStoreService.dispatchListEntitiesAction();

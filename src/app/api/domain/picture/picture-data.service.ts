@@ -8,4 +8,5 @@ export abstract class PictureDataService {
     public abstract list$(): Observable<PictureEntity[]>;
     public abstract update$(entity: PictureEntityUpdate): Observable<PictureEntityUpdate>;
     public abstract patch$(entity: PictureEntityUpdate): Observable<PictureEntityUpdate>; 
+    public abstract delete$(entityId: string): Observable<boolean>;
 }

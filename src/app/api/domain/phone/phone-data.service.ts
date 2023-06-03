@@ -8,5 +8,6 @@ export abstract class PhoneDataService {
     public abstract list$(): Observable<PhoneEntity[]>;
     public abstract update$(phone: PhoneEntityUpdate): Observable<PhoneEntityUpdate>;
     public abstract patch$(phone: PhoneEntityUpdate): Observable<PhoneEntityUpdate>;
+    public abstract delete$(entityId: string): Observable<boolean>;
     // public abstract remove$ / delete (phoneId: string): Observable<
 }

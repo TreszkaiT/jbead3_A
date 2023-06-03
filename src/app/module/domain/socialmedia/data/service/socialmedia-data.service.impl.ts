@@ -44,4 +44,8 @@ export class SocialmediaDataServiceImpl extends SocialmediaDataService {
       return this.http.patch<SocialmediaEntityUpdate>(`${this.url}/${socialmedia.id}`, socialmedia, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
   }
 
+  public override delete$(socialmediaId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.url}/${socialmediaId}`, {headers: this.headers});
+}
+
 }

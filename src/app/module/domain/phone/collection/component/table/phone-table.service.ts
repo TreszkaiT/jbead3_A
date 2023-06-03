@@ -27,6 +27,10 @@ export class PhoneTableService {
         });
     }
 
+    public deletePhone(phone: PhoneEntity): void {
+        this.phoneStoreService.dispatchDeleteEntityAction(phone.id);
+    }
+
     public init$(): Observable<PhoneTableParams> {
         
         // this.phoneStoreService.dispatchListEntitiesAction();

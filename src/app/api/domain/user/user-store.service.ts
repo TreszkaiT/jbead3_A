@@ -10,6 +10,7 @@ export abstract class UserStoreService {
     public abstract dispatchGetEntityAction(id: string): void;
     public abstract dispatchListEntitiesAction(): void;
     public abstract dispatchUpdateEntityAction(user: UserEntityUpdate): void;
+    public abstract dispatchDeleteEntityAction(id: string): void;
     public abstract selectEntity$(
         id: string
     ): Observable<UserEntity | undefined>;

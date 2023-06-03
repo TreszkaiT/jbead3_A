@@ -79,6 +79,24 @@ export class StudyEffects {
         )
     );
 
+    deleteStudy$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(studyActions.deleteStudy),
+            switchMap((action) =>
+                this.studyDataService.delete$(action.id).pipe(
+                    map((study) => {
+                        return studyActions.deleteStudySuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(studyActions.deleteStudyFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private studyDataService: StudyDataService

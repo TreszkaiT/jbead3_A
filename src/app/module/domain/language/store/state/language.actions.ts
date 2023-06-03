@@ -61,3 +61,18 @@ export const updateLanguageSuccess = createAction(
     '[Language Admin] Update Language Success',
     props<{ language: Update<LanguageEntityUpdate> }>()
 );
+
+export const deleteLanguage = createAction(
+    '[Language Admin] Delete Language',
+    props<{ id: string }>()
+);
+
+export const deleteLanguageFail = createAction(
+    '[Language Admin] Delete Language Fail',
+    props<{ error: string }>()
+);
+
+export const deleteLanguageSuccess = createAction(
+    '[Language Admin] Delete Language Success',
+    props<{ id: string }>()
+);

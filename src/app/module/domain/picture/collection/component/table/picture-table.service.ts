@@ -27,6 +27,10 @@ export class PictureTableService {
         });
     }
 
+    public deletePicture(picture: PictureEntity): void {
+        this.pictureStoreService.dispatchDeleteEntityAction(picture.id);
+    }
+
     public init$(): Observable<PictureTableParams> {
         
         // this.pictureStoreService.dispatchListEntitiesAction();

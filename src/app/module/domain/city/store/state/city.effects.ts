@@ -80,22 +80,22 @@ export class CityEffects {
     );
 
     deleteCity$ = createEffect(() =>
-    this.actions$.pipe(
-        ofType(cityActions.deleteCity),
-        switchMap((action) =>
-            this.cityDataService.delete$(action.id).pipe(
-                map((city) => {
-                    return cityActions.deleteCitySuccess({
-                         id: action.id,
-                    });
-                }),
-                catchError((error) => {
-                    return of(cityActions.deleteCityFail({ error }));
-                })
+        this.actions$.pipe(
+            ofType(cityActions.deleteCity),
+            switchMap((action) =>
+                this.cityDataService.delete$(action.id).pipe(
+                    map((city) => {
+                        return cityActions.deleteCitySuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(cityActions.deleteCityFail({ error }));
+                    })
+                )
             )
         )
-    )
-);
+    );
 
     public constructor(
         private actions$: Actions,

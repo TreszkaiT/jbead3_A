@@ -41,6 +41,10 @@ export class LanguageStoreServiceImpl extends LanguageStoreService {
         this.store.dispatch(languageActions.updateLanguage({ language }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(languageActions.deleteLanguage({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(LanguageSelectors.getLanguageLoading));
     }

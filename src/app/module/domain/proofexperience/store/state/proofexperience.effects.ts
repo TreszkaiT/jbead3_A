@@ -79,6 +79,24 @@ export class ProofexperienceEffects {
         )
     );
 
+    deleteProofexperience$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(proofexperienceActions.deleteProofexperience),
+            switchMap((action) =>
+                this.proofexperienceDataService.delete$(action.id).pipe(
+                    map((proofexperience) => {
+                        return proofexperienceActions.deleteProofexperienceSuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(proofexperienceActions.deleteProofexperienceFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private proofexperienceDataService: ProofexperienceDataService

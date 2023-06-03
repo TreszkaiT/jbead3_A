@@ -61,3 +61,18 @@ export const updateProofexperienceSuccess = createAction(
     '[Proofexperience Admin] Update Proofexperience Success',
     props<{ proofexperience: Update<ProofexperienceEntityUpdate> }>()
 );
+
+export const deleteProofexperience = createAction(
+    '[Proofexperience Admin] Delete Proofexperience',
+    props<{ id: string }>()
+);
+
+export const deleteProofexperienceFail = createAction(
+    '[Proofexperience Admin] Delete Proofexperience Fail',
+    props<{ error: string }>()
+);
+
+export const deleteProofexperienceSuccess = createAction(
+    '[Proofexperience Admin] Delete Proofexperience Success',
+    props<{ id: string }>()
+);

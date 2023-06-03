@@ -61,3 +61,18 @@ export const updatePhoneSuccess = createAction(
     '[Phone Admin] Update Phone Success',
     props<{ phone: Update<PhoneEntityUpdate> }>()
 );
+
+export const deletePhone = createAction(
+    '[Phone Admin] Delete Phone',
+    props<{ id: string }>()
+);
+
+export const deletePhoneFail = createAction(
+    '[Phone Admin] Delete Phone Fail',
+    props<{ error: string }>()
+);
+
+export const deletePhoneSuccess = createAction(
+    '[Phone Admin] Delete Phone Success',
+    props<{ id: string }>()
+);

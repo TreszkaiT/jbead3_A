@@ -44,4 +44,7 @@ export class OtherskillDataServiceImpl extends OtherskillDataService {
       return this.http.patch<OtherskillEntityUpdate>(`${this.url}/${otherskill.id}`, otherskill, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
   }
 
+  public override delete$(otherskillId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.url}/${otherskillId}`, {headers: this.headers});
+  }
 }

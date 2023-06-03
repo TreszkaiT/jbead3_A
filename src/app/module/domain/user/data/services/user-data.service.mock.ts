@@ -11,6 +11,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class UserDataServiceMock extends UserDataService {
+    public delete$(entityId: string): Observable<boolean> {
+        throw new Error('Method not implemented.');
+    }
     private userMap: Map<string, UserEntity> = new Map<string, UserEntity>();
 
     public add$(user: UserEntityAdd): Observable<UserEntity> {

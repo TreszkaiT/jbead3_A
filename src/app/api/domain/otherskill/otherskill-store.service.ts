@@ -8,6 +8,7 @@ export abstract class OtherskillStoreService {
     public abstract dispatchGetEntityAction(id: string): void;
     public abstract dispatchListEntitiesAction(): void;
     public abstract dispatchUpdateEntityAction(entity: OtherskillEntityUpdate): void;
+    public abstract dispatchDeleteEntityAction(id: string): void;
     public abstract selectEntity$(id: string): Observable<OtherskillEntity | undefined>;
     public abstract selectEntityList$(): Observable<OtherskillEntity[]>;
     public abstract selectNewEntityButtonEnabled$(): Observable<boolean>;

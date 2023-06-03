@@ -41,6 +41,10 @@ export class StudyStoreServiceImpl extends StudyStoreService {
         this.store.dispatch(studyActions.updateStudy({ study }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(studyActions.deleteStudy({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(StudySelectors.getStudyLoading));
     }

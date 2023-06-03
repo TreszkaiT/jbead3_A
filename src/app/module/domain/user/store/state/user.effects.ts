@@ -79,6 +79,24 @@ export class UserEffects {
         )
     );
 
+    deleteUser$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(userActions.deleteUser),
+            switchMap((action) =>
+                this.userDataService.delete$(action.id).pipe(
+                    map((user) => {
+                        return userActions.deleteUserSuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(userActions.deleteUserFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private userDataService: UserDataService

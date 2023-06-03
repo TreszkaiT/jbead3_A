@@ -41,6 +41,10 @@ export class MessageappStoreServiceImpl extends MessageappStoreService {
         this.store.dispatch(messageappActions.updateMessageapp({ messageapp }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(messageappActions.deleteMessageapp({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(MessageappSelectors.getMessageappLoading));
     }

@@ -41,6 +41,10 @@ export class PictureStoreServiceImpl extends PictureStoreService {
         this.store.dispatch(pictureActions.updatePicture({ picture }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(pictureActions.deletePicture({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(PictureSelectors.getPictureLoading));
     }

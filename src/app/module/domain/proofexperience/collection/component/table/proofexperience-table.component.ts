@@ -22,6 +22,10 @@ export class ProofexperienceTableComponent implements OnInit {
 		this.componentService.editProofexperience(proofexperience);
 	}
 
+	public deleteProofexperience(proofexperience: ProofexperienceEntity): void {
+		this.componentService.deleteProofexperience(proofexperience);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

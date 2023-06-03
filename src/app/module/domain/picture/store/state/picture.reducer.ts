@@ -66,7 +66,16 @@ const pictureReducer = createReducer(
     on(pictureActions.updatePictureSuccess, (state, { picture }) =>
         pictureAdapter.updateOne(picture, state)
     ),
-    on(pictureActions.updatePictureFail, (state, { error }) => ({ ...state, error }))
+    on(pictureActions.updatePictureFail, (state, { error }) => ({ ...state, error })),
+    on(pictureActions.deletePicture, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(pictureActions.deletePictureSuccess, (state, { id }) =>
+            pictureAdapter.removeOne(id, state)
+        ),
+    on(pictureActions.deletePictureFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: PictureState | undefined, action: Action) {

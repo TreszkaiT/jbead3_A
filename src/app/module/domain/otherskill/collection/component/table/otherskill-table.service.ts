@@ -27,6 +27,10 @@ export class OtherskillTableService {
         });
     }
 
+    public deleteOtherskill(otherskill: OtherskillEntity): void {
+        this.otherskillStoreService.dispatchDeleteEntityAction(otherskill.id);
+    }
+
     public init$(): Observable<OtherskillTableParams> {
         
         // this.otherskillStoreService.dispatchListEntitiesAction();

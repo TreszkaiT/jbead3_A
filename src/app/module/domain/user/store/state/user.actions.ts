@@ -61,3 +61,18 @@ export const updateUserSuccess = createAction(
     '[User Admin] Update User Success',
     props<{ user: Update<UserEntityUpdate> }>()
 );
+
+export const deleteUser = createAction(
+    '[User Admin] Delete User',
+    props<{ id: string }>()
+);
+
+export const deleteUserFail = createAction(
+    '[User Admin] Delete User Fail',
+    props<{ error: string }>()
+);
+
+export const deleteUserSuccess = createAction(
+    '[User Admin] Delete User Success',
+    props<{ id: string }>()
+);

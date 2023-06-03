@@ -66,7 +66,16 @@ const languageReducer = createReducer(
     on(languageActions.updateLanguageSuccess, (state, { language }) =>
         languageAdapter.updateOne(language, state)
     ),
-    on(languageActions.updateLanguageFail, (state, { error }) => ({ ...state, error }))
+    on(languageActions.updateLanguageFail, (state, { error }) => ({ ...state, error })),
+    on(languageActions.deleteLanguage, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(languageActions.deleteLanguageSuccess, (state, { id }) =>
+            languageAdapter.removeOne(id, state)
+        ),
+    on(languageActions.deleteLanguageFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: LanguageState | undefined, action: Action) {

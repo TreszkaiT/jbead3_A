@@ -44,4 +44,8 @@ export class StudyDataServiceImpl extends StudyDataService {
       return this.http.patch<StudyEntityUpdate>(`${this.url}/${study.id}`, study, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
   }
 
+  public override delete$(studyId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.url}/${studyId}`, {headers: this.headers});
+}
+
 }

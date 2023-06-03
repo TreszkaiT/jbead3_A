@@ -66,7 +66,16 @@ const socialmediaReducer = createReducer(
     on(socialmediaActions.updateSocialmediaSuccess, (state, { socialmedia }) =>
         socialmediaAdapter.updateOne(socialmedia, state)
     ),
-    on(socialmediaActions.updateSocialmediaFail, (state, { error }) => ({ ...state, error }))
+    on(socialmediaActions.updateSocialmediaFail, (state, { error }) => ({ ...state, error })),
+    on(socialmediaActions.deleteSocialmedia, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(socialmediaActions.deleteSocialmediaSuccess, (state, { id }) =>
+            socialmediaAdapter.removeOne(id, state)
+        ),
+    on(socialmediaActions.deleteSocialmediaFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: SocialmediaState | undefined, action: Action) {

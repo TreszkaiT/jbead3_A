@@ -27,6 +27,10 @@ export class StudyTableService {
         });
     }
 
+    public deleteStudy(study: StudyEntity): void {
+        this.studyStoreService.dispatchDeleteEntityAction(study.id);
+    }
+
     public init$(): Observable<StudyTableParams> {
         
         // this.studyStoreService.dispatchListEntitiesAction();

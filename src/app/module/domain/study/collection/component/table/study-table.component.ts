@@ -22,6 +22,10 @@ export class StudyTableComponent implements OnInit {
 		this.componentService.editStudy(study);
 	}
 
+	public deleteStudy(study: StudyEntity): void {
+		this.componentService.deleteStudy(study);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

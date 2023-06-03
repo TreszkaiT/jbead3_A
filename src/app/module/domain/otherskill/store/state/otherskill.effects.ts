@@ -79,6 +79,24 @@ export class OtherskillEffects {
         )
     );
 
+    deleteOtherskill$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(otherskillActions.deleteOtherskill),
+            switchMap((action) =>
+                this.otherskillDataService.delete$(action.id).pipe(
+                    map((otherskill) => {
+                        return otherskillActions.deleteOtherskillSuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(otherskillActions.deleteOtherskillFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private otherskillDataService: OtherskillDataService

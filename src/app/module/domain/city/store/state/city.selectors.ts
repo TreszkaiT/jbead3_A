@@ -46,4 +46,4 @@ export const selectCity = createSelector(
 export const selectCityById = (id: string) =>
     createSelector(getCityEntities, (cityEntities: Dictionary<CityEntity>) => {     
         return cityEntities[id];                                                    // a Dictionary-val lehet elérni, hogy itt id alapján adjon vissza egy CityEntity-t (Map-pinget így tudom egy kéréssel gyorsan átnézni)
-    });
+});

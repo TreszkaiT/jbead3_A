@@ -22,6 +22,10 @@ export class OtherskillTableComponent implements OnInit {
 		this.componentService.editOtherskill(otherskill);
 	}
 
+	public deleteOtherskill(otherskil: OtherskillEntity): void {
+		this.componentService.deleteOtherskill(otherskil);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

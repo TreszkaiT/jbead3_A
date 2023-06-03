@@ -27,6 +27,10 @@ export class SocialmediaTableService {
         });
     }
 
+    public deleteSocialmedia(socialmedia: SocialmediaEntity): void {
+        this.socialmediaStoreService.dispatchDeleteEntityAction(socialmedia.id);
+    }
+
     public init$(): Observable<SocialmediaTableParams> {
         
         // this.socialmediaStoreService.dispatchListEntitiesAction();

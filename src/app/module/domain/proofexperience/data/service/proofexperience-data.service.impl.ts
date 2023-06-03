@@ -44,4 +44,7 @@ export class ProofexperienceDataServiceImpl extends ProofexperienceDataService {
       return this.http.patch<ProofexperienceEntityUpdate>(`${this.url}/${proofexperience.id}`, proofexperience, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
   }
 
+  public override delete$(proofexperienceId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.url}/${proofexperienceId}`, {headers: this.headers});
+  }
 }

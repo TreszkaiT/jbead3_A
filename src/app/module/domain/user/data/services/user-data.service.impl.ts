@@ -38,6 +38,8 @@ export class UserDataServiceImpl extends UserDataService {
         return this.http.put<UserEntityUpdate>(`${this.url}/${user.id}`, user, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
     }
 
-
+    public override delete$(userId: string): Observable<boolean> {
+        return this.http.delete<boolean>(`${this.url}/${userId}`, {headers: this.headers});
+    }
 
 }

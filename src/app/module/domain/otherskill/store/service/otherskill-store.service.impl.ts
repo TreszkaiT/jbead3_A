@@ -41,6 +41,10 @@ export class OtherskillStoreServiceImpl extends OtherskillStoreService {
         this.store.dispatch(otherskillActions.updateOtherskill({ otherskill }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(otherskillActions.deleteOtherskill({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(OtherskillSelectors.getOtherskillLoading));
     }

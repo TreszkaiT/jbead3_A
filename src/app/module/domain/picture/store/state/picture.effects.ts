@@ -79,6 +79,24 @@ export class PictureEffects {
         )
     );
 
+    deletePicture$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(pictureActions.deletePicture),
+            switchMap((action) =>
+                this.pictureDataService.delete$(action.id).pipe(
+                    map((picture) => {
+                        return pictureActions.deletePictureSuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(pictureActions.deletePictureFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private pictureDataService: PictureDataService

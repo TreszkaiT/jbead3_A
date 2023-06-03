@@ -79,6 +79,24 @@ export class SocialmediaEffects {
         )
     );
 
+    deleteSocialmedia$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(socialmediaActions.deleteSocialmedia),
+            switchMap((action) =>
+                this.socialmediaDataService.delete$(action.id).pipe(
+                    map((socialmedia) => {
+                        return socialmediaActions.deleteSocialmediaSuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(socialmediaActions.deleteSocialmediaFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private socialmediaDataService: SocialmediaDataService

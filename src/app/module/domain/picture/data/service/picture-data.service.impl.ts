@@ -44,4 +44,7 @@ export class PictureDataServiceImpl extends PictureDataService {
       return this.http.patch<PictureEntityUpdate>(`${this.url}/${picture.id}`, picture, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
   }
 
+  public override delete$(pictureId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.url}/${pictureId}`, {headers: this.headers});
+  }
 }

@@ -8,4 +8,5 @@ export abstract class ProofexperienceDataService {
     public abstract list$(): Observable<ProofexperienceEntity[]>;
     public abstract update$(entity: ProofexperienceEntityUpdate): Observable<ProofexperienceEntityUpdate>;
     public abstract patch$(entity: ProofexperienceEntityUpdate): Observable<ProofexperienceEntityUpdate>; 
+    public abstract delete$(entityId: string): Observable<boolean>;
 }

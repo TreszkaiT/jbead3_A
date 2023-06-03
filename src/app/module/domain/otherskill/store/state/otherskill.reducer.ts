@@ -66,7 +66,16 @@ const otherskillReducer = createReducer(
     on(otherskillActions.updateOtherskillSuccess, (state, { otherskill }) =>
         otherskillAdapter.updateOne(otherskill, state)
     ),
-    on(otherskillActions.updateOtherskillFail, (state, { error }) => ({ ...state, error }))
+    on(otherskillActions.updateOtherskillFail, (state, { error }) => ({ ...state, error })),
+    on(otherskillActions.deleteOtherskill, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(otherskillActions.deleteOtherskillSuccess, (state, { id }) =>
+            otherskillAdapter.removeOne(id, state)
+        ),
+    on(otherskillActions.deleteOtherskillFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: OtherskillState | undefined, action: Action) {

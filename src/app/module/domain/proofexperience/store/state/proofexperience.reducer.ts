@@ -66,7 +66,16 @@ const proofexperienceReducer = createReducer(
     on(proofexperienceActions.updateProofexperienceSuccess, (state, { proofexperience }) =>
         proofexperienceAdapter.updateOne(proofexperience, state)
     ),
-    on(proofexperienceActions.updateProofexperienceFail, (state, { error }) => ({ ...state, error }))
+    on(proofexperienceActions.updateProofexperienceFail, (state, { error }) => ({ ...state, error })),
+    on(proofexperienceActions.deleteProofexperience, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(proofexperienceActions.deleteProofexperienceSuccess, (state, { id }) =>
+            proofexperienceAdapter.removeOne(id, state)
+        ),
+    on(proofexperienceActions.deleteProofexperienceFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: ProofexperienceState | undefined, action: Action) {

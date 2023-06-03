@@ -22,6 +22,10 @@ export class PhoneTableComponent implements OnInit {
 		this.componentService.editPhone(phone);
 	}
 
+	public deletePhone(phone: PhoneEntity): void {
+		this.componentService.deletePhone(phone);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

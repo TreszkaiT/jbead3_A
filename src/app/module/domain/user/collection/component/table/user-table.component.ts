@@ -22,6 +22,10 @@ export class UserTableComponent implements OnInit {
 		this.componentService.editUser(user);
 	}
 
+	public deleteUser(user: UserEntity): void {
+		this.componentService.deleteUser(user);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

@@ -41,6 +41,10 @@ export class ProofexperienceStoreServiceImpl extends ProofexperienceStoreService
         this.store.dispatch(proofexperienceActions.updateProofexperience({ proofexperience }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(proofexperienceActions.deleteProofexperience({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(ProofexperienceSelectors.getProofexperienceLoading));
     }

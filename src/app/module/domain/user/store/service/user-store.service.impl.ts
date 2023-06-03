@@ -41,6 +41,10 @@ export class UserStoreServiceImpl extends UserStoreService {
         this.store.dispatch(userActions.updateUser({ user }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(userActions.deleteUser({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(UserSelectors.getUserLoading));
     }

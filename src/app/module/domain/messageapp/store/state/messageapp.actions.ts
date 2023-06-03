@@ -61,3 +61,18 @@ export const updateMessageappSuccess = createAction(
     '[Messageapp Admin] Update Messageapp Success',
     props<{ messageapp: Update<MessageappEntityUpdate> }>()
 );
+
+export const deleteMessageapp = createAction(
+    '[Messageapp Admin] Delete Messageapp',
+    props<{ id: string }>()
+);
+
+export const deleteMessageappFail = createAction(
+    '[Messageapp Admin] Delete Messageapp Fail',
+    props<{ error: string }>()
+);
+
+export const deleteMessageappSuccess = createAction(
+    '[Messageapp Admin] Delete Messageapp Success',
+    props<{ id: string }>()
+);

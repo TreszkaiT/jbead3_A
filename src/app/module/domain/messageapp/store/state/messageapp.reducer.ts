@@ -66,7 +66,16 @@ const messageappReducer = createReducer(
     on(messageappActions.updateMessageappSuccess, (state, { messageapp }) =>
         messageappAdapter.updateOne(messageapp, state)
     ),
-    on(messageappActions.updateMessageappFail, (state, { error }) => ({ ...state, error }))
+    on(messageappActions.updateMessageappFail, (state, { error }) => ({ ...state, error })),
+    on(messageappActions.deleteMessageapp, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(messageappActions.deleteMessageappSuccess, (state, { id }) =>
+            messageappAdapter.removeOne(id, state)
+        ),
+    on(messageappActions.deleteMessageappFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: MessageappState | undefined, action: Action) {

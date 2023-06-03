@@ -41,6 +41,10 @@ export class PhoneStoreServiceImpl extends PhoneStoreService {
         this.store.dispatch(phoneActions.updatePhone({ phone }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(phoneActions.deletePhone({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(PhoneSelectors.getPhoneLoading));
     }

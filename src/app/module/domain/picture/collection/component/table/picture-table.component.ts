@@ -22,6 +22,10 @@ export class PictureTableComponent implements OnInit {
 		this.componentService.editPicture(picture);
 	}
 
+	public deletePicture(picture: PictureEntity): void {
+		this.componentService.deletePicture(picture);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

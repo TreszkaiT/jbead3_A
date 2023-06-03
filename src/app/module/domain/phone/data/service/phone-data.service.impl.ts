@@ -44,4 +44,8 @@ export class PhoneDataServiceImpl extends PhoneDataService {
       return this.http.patch<PhoneEntityUpdate>(`${this.url}/${phone.id}`, phone, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
   }
 
+  public override delete$(phoneId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.url}/${phoneId}`, {headers: this.headers});
+  }
+
 }

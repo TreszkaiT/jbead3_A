@@ -61,3 +61,18 @@ export const updateSocialmediaSuccess = createAction(
     '[Socialmedia Admin] Update Socialmedia Success',
     props<{ socialmedia: Update<SocialmediaEntityUpdate> }>()
 );
+
+export const deleteSocialmedia = createAction(
+    '[Socialmedia Admin] Delete Socialmedia',
+    props<{ id: string }>()
+);
+
+export const deleteSocialmediaFail = createAction(
+    '[Socialmedia Admin] Delete Socialmedia Fail',
+    props<{ error: string }>()
+);
+
+export const deleteSocialmediaSuccess = createAction(
+    '[Socialmedia Admin] Delete Socialmedia Success',
+    props<{ id: string }>()
+);

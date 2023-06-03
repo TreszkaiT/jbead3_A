@@ -68,7 +68,16 @@ const userReducer = createReducer(
     on(userActions.updateUserSuccess, (state, { user }) =>
         userAdapter.updateOne(user, state)
     ),
-    on(userActions.updateUserFail, (state, { error }) => ({ ...state, error }))
+    on(userActions.updateUserFail, (state, { error }) => ({ ...state, error })),
+    on(userActions.deleteUser, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(userActions.deleteUserSuccess, (state, { id }) =>
+            userAdapter.removeOne(id, state)
+        ),
+    on(userActions.deleteUserFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: State | undefined, action: Action) {

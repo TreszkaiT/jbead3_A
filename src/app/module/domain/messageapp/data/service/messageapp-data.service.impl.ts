@@ -44,4 +44,7 @@ export class MessageappDataServiceImpl extends MessageappDataService {
       return this.http.patch<MessageappEntityUpdate>(`${this.url}/${messageapp.id}`, messageapp, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
   }
 
+  public override delete$(messageappId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.url}/${messageappId}`, {headers: this.headers});
+  }
 }

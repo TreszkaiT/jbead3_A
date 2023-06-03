@@ -27,6 +27,10 @@ export class ProofexperienceTableService {
         });
     }
 
+    public deleteProofexperience(proofexperience: ProofexperienceEntity): void {
+        this.proofexperienceStoreService.dispatchDeleteEntityAction(proofexperience.id);
+    }
+
     public init$(): Observable<ProofexperienceTableParams> {
         
         // this.proofexperienceStoreService.dispatchListEntitiesAction();

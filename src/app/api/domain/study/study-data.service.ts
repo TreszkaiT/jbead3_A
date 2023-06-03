@@ -8,4 +8,5 @@ export abstract class StudyDataService {
     public abstract list$(): Observable<StudyEntity[]>;
     public abstract update$(entity: StudyEntityUpdate): Observable<StudyEntityUpdate>;
     public abstract patch$(entity: StudyEntityUpdate): Observable<StudyEntityUpdate>; 
+    public abstract delete$(entityId: string): Observable<boolean>;
 }

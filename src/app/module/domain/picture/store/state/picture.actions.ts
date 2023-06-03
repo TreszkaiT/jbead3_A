@@ -61,3 +61,18 @@ export const updatePictureSuccess = createAction(
     '[Picture Admin] Update Picture Success',
     props<{ picture: Update<PictureEntityUpdate> }>()
 );
+
+export const deletePicture = createAction(
+    '[Picture Admin] Delete Picture',
+    props<{ id: string }>()
+);
+
+export const deletePictureFail = createAction(
+    '[Picture Admin] Delete Picture Fail',
+    props<{ error: string }>()
+);
+
+export const deletePictureSuccess = createAction(
+    '[Picture Admin] Delete Picture Success',
+    props<{ id: string }>()
+);

@@ -22,6 +22,10 @@ export class LanguageTableComponent implements OnInit {
 		this.componentService.editLanguage(language);
 	}
 
+	public deleteLanguage(language: LanguageEntity): void {
+		this.componentService.deleteLanguage(language);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

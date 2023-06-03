@@ -66,7 +66,16 @@ const studyReducer = createReducer(
     on(studyActions.updateStudySuccess, (state, { study }) =>
         studyAdapter.updateOne(study, state)
     ),
-    on(studyActions.updateStudyFail, (state, { error }) => ({ ...state, error }))
+    on(studyActions.updateStudyFail, (state, { error }) => ({ ...state, error })),
+    on(studyActions.deleteStudy, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(studyActions.deleteStudySuccess, (state, { id }) =>
+            studyAdapter.removeOne(id, state)
+        ),
+    on(studyActions.deleteStudyFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: StudyState | undefined, action: Action) {

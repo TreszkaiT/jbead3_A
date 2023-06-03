@@ -79,6 +79,24 @@ export class MessageappEffects {
         )
     );
 
+    deleteMessageapp$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(messageappActions.deleteMessageapp),
+            switchMap((action) =>
+                this.messageappDataService.delete$(action.id).pipe(
+                    map((messageapp) => {
+                        return messageappActions.deleteMessageappSuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(messageappActions.deleteMessageappFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private messageappDataService: MessageappDataService

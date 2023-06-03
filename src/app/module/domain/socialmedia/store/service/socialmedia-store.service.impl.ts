@@ -41,6 +41,10 @@ export class SocialmediaStoreServiceImpl extends SocialmediaStoreService {
         this.store.dispatch(socialmediaActions.updateSocialmedia({ socialmedia }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(socialmediaActions.deleteSocialmedia({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(SocialmediaSelectors.getSocialmediaLoading));
     }

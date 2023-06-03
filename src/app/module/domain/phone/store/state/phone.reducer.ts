@@ -66,7 +66,16 @@ const phoneReducer = createReducer(
     on(phoneActions.updatePhoneSuccess, (state, { phone }) =>
         phoneAdapter.updateOne(phone, state)
     ),
-    on(phoneActions.updatePhoneFail, (state, { error }) => ({ ...state, error }))
+    on(phoneActions.updatePhoneFail, (state, { error }) => ({ ...state, error })),
+    on(phoneActions.deletePhone, (state) => ({
+        ...state,
+        loading: false,
+        error: null,
+    })),
+    on(phoneActions.deletePhoneSuccess, (state, { id }) =>
+            phoneAdapter.removeOne(id, state)
+        ),
+    on(phoneActions.deletePhoneFail, (state, { error }) => ({...state, error })),
 );
 
 export function reducer(state: PhoneState | undefined, action: Action) {

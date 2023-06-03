@@ -22,6 +22,10 @@ export class SocialmediaTableComponent implements OnInit {
 		this.componentService.editSocialmedia(socialmedia);
 	}
 
+	public deleteSocialmedia(socialmedia: SocialmediaEntity): void {
+		this.componentService.deleteSocialmedia(socialmedia);
+	}
+
 	public ngOnInit(): void {
 		this.params$ = this.componentService.init$();
 	}

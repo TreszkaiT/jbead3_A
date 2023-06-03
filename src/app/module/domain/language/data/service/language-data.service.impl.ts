@@ -44,4 +44,7 @@ export class LanguageDataServiceImpl extends LanguageDataService {
       return this.http.patch<LanguageEntityUpdate>(`${this.url}/${language.id}`, language, {headers: this.headers} );   // így nem vagyok köteles minden property-t átadni... lehet csak a name: lesz benne, a zip: az nem
   }
 
+  public override delete$(languageId: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.url}/${languageId}`, {headers: this.headers});
+  }
 }

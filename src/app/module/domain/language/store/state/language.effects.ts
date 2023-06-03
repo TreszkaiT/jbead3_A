@@ -79,6 +79,24 @@ export class LanguageEffects {
         )
     );
 
+    deleteLanguage$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(languageActions.deleteLanguage),
+            switchMap((action) =>
+                this.languageDataService.delete$(action.id).pipe(
+                    map((language) => {
+                        return languageActions.deleteLanguageSuccess({
+                            id: action.id,
+                        });
+                    }),
+                    catchError((error) => {
+                        return of(languageActions.deleteLanguageFail({ error }));
+                    })
+                )
+            )
+        )
+    );
+
     public constructor(
         private actions$: Actions,
         private languageDataService: LanguageDataService

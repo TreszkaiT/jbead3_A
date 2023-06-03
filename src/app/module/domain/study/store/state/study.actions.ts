@@ -61,3 +61,18 @@ export const updateStudySuccess = createAction(
     '[Study Admin] Update Study Success',
     props<{ study: Update<StudyEntityUpdate> }>()
 );
+
+export const deleteStudy = createAction(
+    '[Study Admin] Delete Study',
+    props<{ id: string }>()
+);
+
+export const deleteStudyFail = createAction(
+    '[Study Admin] Delete Study Fail',
+    props<{ error: string }>()
+);
+
+export const deleteStudySuccess = createAction(
+    '[Study Admin] Delete Study Success',
+    props<{ id: string }>()
+);
