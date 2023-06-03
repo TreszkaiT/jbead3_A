@@ -53,10 +53,13 @@ export class CityTableComponent implements OnInit {
 
 	public deleteCity(city: CityEntity): void {
 		this.componentService.deleteCity(city);
+		// location.reload(); 								// teljes Appot újratölti
+		// window.location.reload();
 		// this.ngOnInit();									// only refresh this component
+
 		this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {			// reload this component
-			// this.router.navigate(['admin/city/list']);
-			this.router.navigate([this.currentRoute]);
+			this.router.navigate(['admin/city/list']);
+			// this.router.navigate([this.currentRoute]);
 		});
 	}
 
