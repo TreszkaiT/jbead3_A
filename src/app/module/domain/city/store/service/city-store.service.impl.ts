@@ -41,6 +41,10 @@ export class CityStoreServiceImpl extends CityStoreService {
         this.store.dispatch(cityActions.updateCity({ city }));
     }
 
+    public dispatchDeleteEntityAction(id: string): void {
+        this.store.dispatch(cityActions.deleteCity({ id }));
+    }
+
     public isLoading$(): Observable<boolean> {
         return this.store.pipe(select(CitySelectors.getCityLoading));
     }

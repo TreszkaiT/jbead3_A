@@ -61,3 +61,18 @@ export const updateCitySuccess = createAction(
     '[City Admin] Update City Success',
     props<{ city: Update<CityEntityUpdate> }>()
 );
+
+export const deleteCity = createAction(
+    '[City Admin] Delete City',
+    props<{ id: string }>()
+);
+
+export const deleteCityFail = createAction(
+    '[City Admin] Delete City Fail',
+    props<{ error: string }>()
+);
+
+export const deleteCitySuccess = createAction(
+    '[City Admin] Delete City Success',
+    props<{ id: string }>()
+);
