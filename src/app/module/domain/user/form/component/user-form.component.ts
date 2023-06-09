@@ -23,6 +23,7 @@ export class UserFormComponent implements OnInit {
 
     public ngOnInit(): void {
         this.params$ = this.componentService.init$();
+        // this.componentService.init2();
     }
 
     public submit(): void {

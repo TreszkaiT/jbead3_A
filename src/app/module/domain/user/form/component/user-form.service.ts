@@ -1,28 +1,28 @@
 import { combineLatest, Observable, ReplaySubject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import {
-    UserEntity,
-    UserEntityAdd,
-    UserEntityUpdate,
-    UserFormParams,
-    UserStoreService,
-    UserUtilService,
-} from 'src/app/api/domain/user';
-
-import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { debounceTime, switchMap } from 'rxjs/operators';
 import { CityEntity, CityStoreService } from 'src/app/api/domain/city';
-import { PhoneEntity, PhoneStoreService } from 'src/app/api/domain/phone';
-import { compileDeclareClassMetadata } from '@angular/compiler';
-import { SocialmediaEntity, SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
-import { PictureEntity, PictureStoreService } from 'src/app/api/domain/picture';
 import { LanguageEntity, LanguageStoreService } from 'src/app/api/domain/language';
-import { MessageappStoreService } from '../../../../../api/domain/messageapp/messageapp-store.service';
 import { MessageappEntity } from 'src/app/api/domain/messageapp';
 import { OtherskillEntity, OtherskillStoreService } from 'src/app/api/domain/otherskill';
-import { ProofexperienceEntity, ProofexperienceStoreService } from 'src/app/api/domain/proofexperience';
+import { PhoneEntity, PhoneStoreService } from 'src/app/api/domain/phone';
+import { PictureEntity, PictureStoreService } from 'src/app/api/domain/picture';
+import {
+    ProofexperienceEntity, ProofexperienceStoreService
+} from 'src/app/api/domain/proofexperience';
+import { SocialmediaEntity, SocialmediaStoreService } from 'src/app/api/domain/socialmedia';
 import { StudyEntity, StudyStoreService } from 'src/app/api/domain/study';
+import {
+    UserEntity, UserEntityAdd, UserEntityUpdate, UserFormParams, UserStoreService, UserUtilService
+} from 'src/app/api/domain/user';
+
+import { compileDeclareClassMetadata } from '@angular/compiler';
+import { Injectable } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import {
+    MessageappStoreService
+} from '../../../../../api/domain/messageapp/messageapp-store.service';
 
 @Injectable()
 export class UserFormService {
@@ -30,6 +30,13 @@ export class UserFormService {
     private params!: UserFormParams;
     private params$$: ReplaySubject<UserFormParams>;
     private user!: UserEntity | undefined;
+
+    // profileForm = new FormGroup({
+    //     firstName: new FormControl("", [
+    //     Validators.required,
+    //     Validators.maxLength(20)
+    //     ]),
+    // });
 
     public constructor(
         private activatedRoute: ActivatedRoute,        
@@ -84,6 +91,37 @@ export class UserFormService {
         );
     }
 
+    public init2(): void { 
+
+        // this.params.formGroup.valueChanges.pipe(debounceTime(200))
+        // .subscribe(
+        //  term => {
+        //   console.log(term);
+        //  }
+        // );
+
+        // console.log(this.formGroup.get('firstName').valueChanges);
+
+        //this.formGroup.get('firstName').valueChanges.subscribe( x => console.log(x));
+        // this.formGroup.valueChanges.subscribe(val => {
+        //     console.log(val);
+        //     console.log(
+        //       this.getError("firstName", "maxlength"),
+        //     );
+        // })        
+    }
+
+    getError(path: string, errorName: string) {
+        const formControl = (this.formGroup.get(path) as FormControl);
+        if (!formControl.touched && !formControl.dirty) {
+        if (formControl.untouched && formControl.pristine) {
+          return;
+        }
+    
+        return formControl.errors?.[errorName];
+      }
+    }
+
     public mainImageUpload(file: File): void {
         console.log(file);
     }
@@ -132,4 +170,5 @@ export class UserFormService {
 
         this.userStoreService.dispatchUpdateEntityAction(user);
     }
+
 }

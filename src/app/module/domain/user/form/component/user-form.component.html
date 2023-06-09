@@ -18,6 +18,14 @@
 			</span>
 		</div>
 
+		<div *ngIf="getError('firstName', 'required')" class="text-danger">
+			Keresztnév megadása kötelező.
+		</div>
+		<div *ngIf="getError('firstName', 'maxlength') as err" class="text-danger">
+			Max karakterszám {{err.requiredLength}} beírt: {{err.actualLength}}
+		</div>
+
+		
 		<div class="field">
 			<span class="p-float-label">
 				<input id="lastName" type="text" pInputText formControlName="lastName" />
